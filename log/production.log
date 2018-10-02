@@ -1871,3 +1871,51 @@ D, [2018-10-02T12:22:04.731882 #2676] DEBUG -- :   [1m[36mActiveRecord::Intern
 D, [2018-10-02T12:22:04.739265 #2676] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
 D, [2018-10-02T12:22:04.743856 #2676] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
 D, [2018-10-02T12:22:04.744603 #2676] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7962566250648978465)[0m
+I, [2018-10-02T16:05:31.357685 #7030]  INFO -- : [043b8622-72e3-4098-9adf-f5890f06492c] Started GET "/" for 123.21.2.165 at 2018-10-02 16:05:31 +0000
+F, [2018-10-02T16:05:31.359325 #7030] FATAL -- : [043b8622-72e3-4098-9adf-f5890f06492c]   
+F, [2018-10-02T16:05:31.359425 #7030] FATAL -- : [043b8622-72e3-4098-9adf-f5890f06492c] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2018-10-02T16:05:31.359473 #7030] FATAL -- : [043b8622-72e3-4098-9adf-f5890f06492c]   
+F, [2018-10-02T16:05:31.359550 #7030] FATAL -- : [043b8622-72e3-4098-9adf-f5890f06492c] actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[043b8622-72e3-4098-9adf-f5890f06492c] railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[043b8622-72e3-4098-9adf-f5890f06492c] activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[043b8622-72e3-4098-9adf-f5890f06492c] activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[043b8622-72e3-4098-9adf-f5890f06492c] activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[043b8622-72e3-4098-9adf-f5890f06492c] railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] railties (5.2.1) lib/rails/engine.rb:524:in `call'
+[043b8622-72e3-4098-9adf-f5890f06492c] unicorn (5.4.1) lib/unicorn/http_server.rb:606:in `process_client'
+[043b8622-72e3-4098-9adf-f5890f06492c] unicorn (5.4.1) lib/unicorn/http_server.rb:701:in `worker_loop'
+[043b8622-72e3-4098-9adf-f5890f06492c] unicorn (5.4.1) lib/unicorn/http_server.rb:549:in `spawn_missing_workers'
+[043b8622-72e3-4098-9adf-f5890f06492c] unicorn (5.4.1) lib/unicorn/http_server.rb:142:in `start'
+[043b8622-72e3-4098-9adf-f5890f06492c] unicorn (5.4.1) bin/unicorn:126:in `<top (required)>'
+[043b8622-72e3-4098-9adf-f5890f06492c] /home/ducpt/.rbenv/versions/2.5.1/bin/unicorn:23:in `load'
+[043b8622-72e3-4098-9adf-f5890f06492c] /home/ducpt/.rbenv/versions/2.5.1/bin/unicorn:23:in `<top (required)>'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/cli/exec.rb:74:in `load'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/cli/exec.rb:74:in `kernel_load'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/cli/exec.rb:28:in `run'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/cli.rb:424:in `exec'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/cli.rb:27:in `dispatch'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/cli.rb:18:in `start'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) exe/bundle:30:in `block in <top (required)>'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) lib/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+[043b8622-72e3-4098-9adf-f5890f06492c] bundler (1.16.5) exe/bundle:22:in `<top (required)>'
+[043b8622-72e3-4098-9adf-f5890f06492c] /home/ducpt/.rbenv/versions/2.5.1/bin/bundle:23:in `load'
+[043b8622-72e3-4098-9adf-f5890f06492c] /home/ducpt/.rbenv/versions/2.5.1/bin/bundle:23:in `<main>'
+I, [2018-10-02T16:05:34.825253 #7032]  INFO -- : [8caba005-e59f-4567-bcf1-cf9a99e75576] Started GET "/tasks" for 123.21.2.165 at 2018-10-02 16:05:34 +0000
+I, [2018-10-02T16:05:34.829201 #7032]  INFO -- : [8caba005-e59f-4567-bcf1-cf9a99e75576] Processing by TasksController#index as HTML
+I, [2018-10-02T16:05:34.842513 #7032]  INFO -- : [8caba005-e59f-4567-bcf1-cf9a99e75576]   Rendering tasks/index.html.erb within layouts/application
+D, [2018-10-02T16:05:34.868558 #7032] DEBUG -- : [8caba005-e59f-4567-bcf1-cf9a99e75576]   [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+I, [2018-10-02T16:05:34.873975 #7032]  INFO -- : [8caba005-e59f-4567-bcf1-cf9a99e75576]   Rendered tasks/index.html.erb within layouts/application (31.3ms)
+I, [2018-10-02T16:05:34.876113 #7032]  INFO -- : [8caba005-e59f-4567-bcf1-cf9a99e75576] Completed 200 OK in 47ms (Views: 35.3ms | ActiveRecord: 11.0ms)
