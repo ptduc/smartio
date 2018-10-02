@@ -1,0 +1,38 @@
+I, [2018-10-02T11:53:21.412982 #4417]  INFO -- : Refreshing Gem list
+I, [2018-10-02T11:53:22.386180 #4417]  INFO -- : listening on addr=/home/ducpt/smartio/shared/sockets/unicorn.sock fd=12
+I, [2018-10-02T11:53:22.386377 #4417]  INFO -- : worker=0 spawning...
+I, [2018-10-02T11:53:22.387863 #4417]  INFO -- : worker=1 spawning...
+I, [2018-10-02T11:53:22.390241 #4417]  INFO -- : master process ready
+I, [2018-10-02T11:53:22.401549 #4421]  INFO -- : worker=0 spawned pid=4421
+I, [2018-10-02T11:53:22.401825 #4421]  INFO -- : worker=0 ready
+I, [2018-10-02T11:53:22.410542 #4424]  INFO -- : worker=1 spawned pid=4424
+I, [2018-10-02T11:53:22.410751 #4424]  INFO -- : worker=1 ready
+I, [2018-10-02T12:07:12.594669 #4417]  INFO -- : reaped #<Process::Status: pid 4421 exit 0> worker=0
+I, [2018-10-02T12:07:12.594812 #4417]  INFO -- : reaped #<Process::Status: pid 4424 exit 0> worker=1
+I, [2018-10-02T12:07:12.594881 #4417]  INFO -- : master complete
+I, [2018-10-02T12:10:20.283753 #6474]  INFO -- : Refreshing Gem list
+I, [2018-10-02T12:10:21.400834 #6474]  INFO -- : unlinking existing socket=/home/ducpt/smartio/shared/sockets/unicorn.sock
+I, [2018-10-02T12:10:21.401037 #6474]  INFO -- : listening on addr=/home/ducpt/smartio/shared/sockets/unicorn.sock fd=12
+I, [2018-10-02T12:10:21.401159 #6474]  INFO -- : worker=0 spawning...
+I, [2018-10-02T12:10:21.402554 #6474]  INFO -- : worker=1 spawning...
+I, [2018-10-02T12:10:21.403506 #6478]  INFO -- : worker=0 spawned pid=6478
+I, [2018-10-02T12:10:21.403673 #6478]  INFO -- : worker=0 ready
+I, [2018-10-02T12:10:21.405315 #6474]  INFO -- : master process ready
+I, [2018-10-02T12:10:21.423371 #6481]  INFO -- : worker=1 spawned pid=6481
+I, [2018-10-02T12:10:21.423580 #6481]  INFO -- : worker=1 ready
+I, [2018-10-02T12:11:37.894018 #6474]  INFO -- : reaped #<Process::Status: pid 6478 exit 0> worker=0
+I, [2018-10-02T12:11:37.894145 #6474]  INFO -- : reaped #<Process::Status: pid 6481 exit 0> worker=1
+I, [2018-10-02T12:11:37.894206 #6474]  INFO -- : master complete
+I, [2018-10-02T12:12:24.712767 #1647]  INFO -- : Refreshing Gem list
+I, [2018-10-02T12:12:27.603676 #1647]  INFO -- : unlinking existing socket=/home/ducpt/smartio/shared/sockets/unicorn.sock
+I, [2018-10-02T12:12:27.604156 #1647]  INFO -- : listening on addr=/home/ducpt/smartio/shared/sockets/unicorn.sock fd=12
+I, [2018-10-02T12:12:27.604381 #1647]  INFO -- : worker=0 spawning...
+I, [2018-10-02T12:12:27.607122 #1647]  INFO -- : worker=1 spawning...
+I, [2018-10-02T12:12:27.608949 #1663]  INFO -- : worker=0 spawned pid=1663
+I, [2018-10-02T12:12:27.609334 #1663]  INFO -- : worker=0 ready
+I, [2018-10-02T12:12:27.612499 #1647]  INFO -- : master process ready
+I, [2018-10-02T12:12:27.630245 #1666]  INFO -- : worker=1 spawned pid=1666
+I, [2018-10-02T12:12:27.630636 #1666]  INFO -- : worker=1 ready
+I, [2018-10-02T12:22:36.107108 #1647]  INFO -- : reaped #<Process::Status: pid 1663 exit 0> worker=0
+I, [2018-10-02T12:22:36.107283 #1647]  INFO -- : reaped #<Process::Status: pid 1666 exit 0> worker=1
+I, [2018-10-02T12:22:36.107374 #1647]  INFO -- : master complete
