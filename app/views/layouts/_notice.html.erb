@@ -1,0 +1,11 @@
+<div class='alert-success'>
+  <p class='alert'>
+    <% if notice.is_a?(Array) %>
+      <% notice.each do |notice_txt| %>
+        <p><%= notice_txt %></p>
+      <% end %>
+    <% else %>
+      <%= notice %>
+    <% end %>
+  </p>
+</div>
