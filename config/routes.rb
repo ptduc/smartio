@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'control', to: 'control#index'
   get 'home/index'
   resources :tasks
   root 'home#index'
