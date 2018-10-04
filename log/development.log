@@ -64,3 +64,37 @@ Processing by ControlController#index as HTML
 Completed 200 OK in 114ms (Views: 112.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/control" for ::1 at 2018-10-04 17:13:17 +0700
+Processing by ControlController#index as HTML
+  Rendering control/index.html.erb within layouts/application
+  Rendered control/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 2302ms (Views: 2300.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-10-04 17:14:36 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 71ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-10-04 17:20:24 +0700
+  [1m[35m (40.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/p_h_duc/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 4593ms (Views: 4582.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-10-04 17:21:12 +0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+

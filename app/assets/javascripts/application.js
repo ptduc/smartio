@@ -16,4 +16,5 @@
 //= require popper
 //= require bootstrap
 //= require moment
+//= require lodash
 //= require_tree .
