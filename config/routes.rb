@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :devices
+  resources :units
   get 'control', to: 'control#index'
   get 'home/index'
   resources :tasks
