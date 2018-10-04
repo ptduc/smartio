@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Tech Building</title>
+    <title>Smart IO</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'layouts/stylesheet_tags' %>
   </head>
-  <body class="bg-light">
+  <body>
 
     <%= render 'layouts/header' %>
 
-    <main role="main" class="wrapper">
-      <%= (render 'layouts/notice', local: { notice: notice }) if notice %>
-      <%= (render 'layouts/alert', local: { alert: alert }) if alert %>
-      <%= yield %>
-    </main>
-    <!-- js lib -->
-    <%= render 'layouts/javascript_tags' %>
+    <!-- Begin page content -->
+    <body class="bg-light">
+      <main role="main" class="wrapper">
+        <div id="location-areas" class="my-3 p-3 bg-white rounded shadow-sm">
+          <%= yield %>
+        </div>
+      </main>
+    </body>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
