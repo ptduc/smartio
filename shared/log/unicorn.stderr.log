@@ -36,3 +36,13 @@ I, [2018-10-02T12:12:27.630636 #1666]  INFO -- : worker=1 ready
 I, [2018-10-02T12:22:36.107108 #1647]  INFO -- : reaped #<Process::Status: pid 1663 exit 0> worker=0
 I, [2018-10-02T12:22:36.107283 #1647]  INFO -- : reaped #<Process::Status: pid 1666 exit 0> worker=1
 I, [2018-10-02T12:22:36.107374 #1647]  INFO -- : master complete
+I, [2018-10-02T16:05:25.694701 #7026]  INFO -- : Refreshing Gem list
+I, [2018-10-02T16:05:26.427348 #7026]  INFO -- : unlinking existing socket=/home/ducpt/smartio/shared/sockets/unicorn.sock
+I, [2018-10-02T16:05:26.427536 #7026]  INFO -- : listening on addr=/home/ducpt/smartio/shared/sockets/unicorn.sock fd=12
+I, [2018-10-02T16:05:26.427624 #7026]  INFO -- : worker=0 spawning...
+I, [2018-10-02T16:05:26.428830 #7026]  INFO -- : worker=1 spawning...
+I, [2018-10-02T16:05:26.430023 #7026]  INFO -- : master process ready
+I, [2018-10-02T16:05:26.446819 #7030]  INFO -- : worker=0 spawned pid=7030
+I, [2018-10-02T16:05:26.447023 #7030]  INFO -- : worker=0 ready
+I, [2018-10-02T16:05:26.447970 #7032]  INFO -- : worker=1 spawned pid=7032
+I, [2018-10-02T16:05:26.448164 #7032]  INFO -- : worker=1 ready
