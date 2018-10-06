@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_04_154552) do
+ActiveRecord::Schema.define(version: 2018_10_06_033700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,15 @@ ActiveRecord::Schema.define(version: 2018_10_04_154552) do
     t.string "code"
     t.bigint "unit_id"
     t.boolean "is_active", default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["unit_id"], name: "index_devices_on_unit_id"
+  end
+
+  create_table "message_logs", force: :cascade do |t|
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["unit_id"], name: "index_devices_on_unit_id"
   end
 
   create_table "status_histories", force: :cascade do |t|
