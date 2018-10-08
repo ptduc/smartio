@@ -18,7 +18,7 @@ class Server
       puts "Server on running"
       loop do
         Thread.start(@server_socket.accept) do |client|
-          message = client.recv(2048);
+          message = client.recv(1024);
           if message
             db_insert_message_log message
             puts "One device"
@@ -56,12 +56,14 @@ class Server
   def db_insert_message_log message
     db_init if @db_conn.nil?
     current_time = Time.now
-    @db_conn.exec("INSERT INTO message_logs(\"content\", \"created_at\", \"updated_at\") VALUES ('#{message}','#{current_time}','#{current_time}')")
+    @db_conn.exec("INSERT INTO message_logs(\"content\", \"created_at\") VALUES ('#{message}','#{current_time}')")
   end
 
   def db_insert_device code
     db_init if @db_conn.nil?
     result = @db_conn.exec("INSERT INTO devices(\"code\", \"unit_id\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('#{code}', 1, '1','#{Time.now}','#{Time.now}') RETURNING * ")
+    device_id = result[0]['id']
+    @db_conn.exec("INSERT INTO statuses(\"device_id\", \"updated_at\") VALUES (#{device_id},'#{Time.now}')")
     result[0]
   end
 
@@ -99,8 +101,8 @@ class Server
                                 \"relay4_status\"= $9,
                                 \"updated_at\"    = $10
                             WHERE device_id = $1", params)
-      @db_conn.exec_params("INSERT INTO status_histories(\"device_id\", \"relay1_mode\", \"relay1_status\", \"relay2_mode\", \"relay2_status\", \"relay3_mode\", \"relay3_status\",\"relay4_mode\", \"relay4_status\", \"created_at\", \"updated_at\") 
-                                   VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)", params.push(current_time))
+      @db_conn.exec_params("INSERT INTO status_histories(\"device_id\", \"relay1_mode\", \"relay1_status\", \"relay2_mode\", \"relay2_status\", \"relay3_mode\", \"relay3_status\",\"relay4_mode\", \"relay4_status\", \"created_at\")
+                                   VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)", params)
     end
   end
 
