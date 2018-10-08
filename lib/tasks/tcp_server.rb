@@ -22,9 +22,9 @@ class Server
           if message
             db_insert_message_log message
             puts "One device"
-            data = JSON.parse(message) 
+            data = JSON.parse(message)
             if data['ID']
-              @connected_clients[data['ID']] = client          
+              @connected_clients[data['ID']] = client
               case data['Action']
               when 0
                 action_sent_command data
@@ -89,15 +89,15 @@ class Server
       db_init if @db_conn.nil?
       params = [device_id, relay1_status, relay1_mode, relay2_status, relay2_mode, relay3_status, relay3_mode, relay4_status, relay4_mode, current_time]
       @db_conn.exec_params("UPDATE statuses  \
-                            SET \"relay1_mode\"  = $2, 
-                                \"relay1_status\"= $3, 
-                                \"relay2_mode\"  = $4, 
-                                \"relay2_status\"= $5, 
-                                \"relay3_mode\"  = $6, 
+                            SET \"relay1_mode\"  = $2,
+                                \"relay1_status\"= $3,
+                                \"relay2_mode\"  = $4,
+                                \"relay2_status\"= $5,
+                                \"relay3_mode\"  = $6,
                                 \"relay3_status\"= $7,
-                                \"relay4_mode\"  = $8, 
-                                \"relay4_status\"= $9, 
-                                \"updated_at\"    = $10 
+                                \"relay4_mode\"  = $8,
+                                \"relay4_status\"= $9,
+                                \"updated_at\"    = $10
                             WHERE device_id = $1", params)
       @db_conn.exec_params("INSERT INTO status_histories(\"device_id\", \"relay1_mode\", \"relay1_status\", \"relay2_mode\", \"relay2_status\", \"relay3_mode\", \"relay3_status\",\"relay4_mode\", \"relay4_status\", \"created_at\", \"updated_at\") 
                                    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)", params.push(current_time))
@@ -119,26 +119,22 @@ class Server
     end
   end
 
-  def action_sent_command data 
+  def action_sent_command data
     device_code = data['Message']['ID']
     message = data['Message']
-    @connected_clients[device_code].puts message if @connected_clients[device_code] && !message.nil?      
+    @connected_clients[device_code].puts message if @connected_clients[device_code] && !message.nil?
   end
 
-  def action_1 
-    
+  def action_1
   end
 
-  def action_2 
-    
+  def action_2
   end
 
-  def action_3 
-    
+  def action_3
   end
 
-  def action_4 
-    
+  def action_4
   end
 
   # Bản tin định kỳ
