@@ -1,3 +1,7 @@
-/log
-/config/database.yml
-/tmp
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+/yarn-error.log
