@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit_code: MyString
+  name: MyString
+  address: MyString
+  description: MyText
+  is_active: false
+
+two:
+  unit_code: MyString
+  name: MyString
+  address: MyString
+  description: MyText
+  is_active: false

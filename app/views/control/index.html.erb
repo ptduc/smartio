@@ -1,0 +1,65 @@
+<div class="row p-3">
+<div class="col-md-2 p-2 bg-white rounded shadow-sm">
+  <div class="box box-info">
+
+    <div class="box-body">
+      <table class="table table-bordered table-hover table-sm">
+      <thead class="thead-light text-center">
+        <th>Danh sách thiết bị</th>
+      </thead>
+      <tbody>
+        <% (10..25).each do |x| %>
+          <tr>
+            <td class="text-center"><a href="pages/examples/invoice.html">000000<%= x %></a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-10 p-4 bg-white rounded shadow-sm">
+  <div class="box-header with-border">
+    <p>Mã thiết bị 00000010</p>
+    <p>Khu vực Trần Quốc Thảo</p>
+    <p>Trạng thái</p>
+    <table class="table table-bordered table-sm">
+          <thead class="thead-light text-center">
+            <tr>
+              <th colspan="2" class="text-center">Relay 1</th>
+              <th colspan="2" class="text-center">Relay 2</th>
+              <th colspan="2" class="text-center">Relay 3</th>
+              <th colspan="2" class="text-center">Relay 4</th>
+            </tr>
+            <tr>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">Manual</td>
+              <td class="text-center">ON</td>
+              <td class="text-center">Manual</td>
+              <td class="text-center">ON</td>
+              <td class="text-center">Manual</td>
+              <td class="text-center">ON</td>
+              <td class="text-center">Manual</td>
+              <td class="text-center">ON</td>
+            </tr>
+
+          </tbody>
+    </table>
+    <p> Điều khiển </p>
+    <p>Bật/Tắt</p>
+    <p></p>
+  </div>
+</div>
+</div>
