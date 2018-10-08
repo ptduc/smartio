@@ -10,7 +10,7 @@
           <thead class="thead-light text-center">
             <tr>
               <th rowspan="2" class="text-center">ID</th>
-              <th rowspan="2" class="text-center">Khu vưc</th>
+              <th rowspan="2" class="text-center">Time</th>
               <th colspan="2" class="text-center">Relay 1</th>
               <th colspan="2" class="text-center">Relay 2</th>
               <th colspan="2" class="text-center">Relay 3</th>
@@ -28,102 +28,20 @@
             </tr>
           </thead>
           <tbody>
+            <% @devices.each do |device| %>
             <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
+              <td class="text-center"><a href="#"><%= device.code %></a></td>
+              <td class="text-center"><%= device.status.updated_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
+              <td class="text-center"><%= device.status.relay1_mode %></td>
+              <td class="text-center"><%= device.status.relay1_status %></td>
+              <td class="text-center"><%= device.status.relay2_mode %></td>
+              <td class="text-center"><%= device.status.relay2_status %></td>
+              <td class="text-center"><%= device.status.relay3_mode %></td>
+              <td class="text-center"><%= device.status.relay3_status %></td>
+              <td class="text-center"><%= device.status.relay4_mode %></td>
+              <td class="text-center"><%= device.status.relay4_status %></td>
             </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>

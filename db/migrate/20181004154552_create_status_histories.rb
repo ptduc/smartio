@@ -11,7 +11,7 @@ class CreateStatusHistories < ActiveRecord::Migration[5.2]
       t.boolean :relay4_mode
       t.boolean :relay4_status
 
-      t.timestamps
+      t.datetime :created_at
     end
   end
 end

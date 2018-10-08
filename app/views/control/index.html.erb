@@ -8,9 +8,9 @@
         <th>Danh sách thiết bị</th>
       </thead>
       <tbody>
-        <% (10..25).each do |x| %>
+        <% @devices.each do |x| %>
           <tr>
-            <td class="text-center"><a href="pages/examples/invoice.html">000000<%= x %></a></td>
+            <td class="text-center"><a href="/#"><%= x.code %></a></td>
           </tr>
         <% end %>
       </tbody>

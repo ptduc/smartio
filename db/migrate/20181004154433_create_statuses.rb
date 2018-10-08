@@ -10,8 +10,8 @@ class CreateStatuses < ActiveRecord::Migration[5.2]
       t.boolean :relay3_status
       t.boolean :relay4_mode
       t.boolean :relay4_status
-      
-      t.timestamps
+
+      t.datetime :updated_at
     end
   end
 end

@@ -19,15 +19,14 @@ ActiveRecord::Schema.define(version: 2018_10_06_033700) do
     t.string "code"
     t.bigint "unit_id"
     t.boolean "is_active", default: true
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["unit_id"], name: "index_devices_on_unit_id"
   end
 
   create_table "message_logs", force: :cascade do |t|
     t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
   end
 
   create_table "status_histories", force: :cascade do |t|
@@ -40,8 +39,7 @@ ActiveRecord::Schema.define(version: 2018_10_06_033700) do
     t.boolean "relay3_status"
     t.boolean "relay4_mode"
     t.boolean "relay4_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
     t.index ["device_id"], name: "index_status_histories_on_device_id"
   end
 
@@ -55,16 +53,8 @@ ActiveRecord::Schema.define(version: 2018_10_06_033700) do
     t.boolean "relay3_status"
     t.boolean "relay4_mode"
     t.boolean "relay4_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at"
     t.index ["device_id"], name: "index_statuses_on_device_id"
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.string "title"
-    t.text "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "units", force: :cascade do |t|
