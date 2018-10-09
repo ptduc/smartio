@@ -14,20 +14,47 @@ class Server
   end
 
   def run
-    begin
-      puts "Server on running"
+    puts "Server on running"
+    thread_sending_command
+    thread_waiting_messages
+    rescue Interrupt => e
+      @db_conn.close
+      puts "Server on stoping"
+    rescue
+      puts "Server has Exception"
+  end
+
+  private
+
+  def thread_sending_command
+    Thread.new do
       loop do
+        commands = db_get_list_commands
+        if commands.size > 0
+          commands.each do |cmd|
+            if @connected_clients[cmd["code"]] && !cmd["command"].nil?
+              db_update_command(cmd["id"], 1)
+              @connected_clients[cmd["code"]].puts JSON.parse(cmd["command"])
+            end
+          end
+        end
+        puts "#{Time.now} ---- Scan command table #{commands.size}"
+        sleep 15
+      end
+    end
+  end
+
+  def thread_waiting_messages
+    loop do
         Thread.start(@server_socket.accept) do |client|
           message = client.recv(1024);
           if message
             db_insert_message_log message
-            puts "One device"
             data = JSON.parse(message)
             if data['ID']
+              puts "#{Time.now} ---- Received from  #{data['ID']}"
               @connected_clients[data['ID']] = client
               case data['Action']
-              when 0
-                action_sent_command data
               when 1
                 action_1 data
               when 2
@@ -44,13 +71,20 @@ class Server
           end
         end
       end
-    end
-  rescue
-    @db_conn.close
   end
 
   def db_init
     @db_conn = PG::Connection.new(@db_conn_string)
+  end
+
+  def db_get_list_commands
+    db_init if @db_conn.nil?
+    @db_conn.exec_params("SELECT * FROM COMMANDS WHERE STATUS = 0 AND CREATED_AT >= $1", [ Time.now.utc - 180 ]).to_a
+  end
+
+  def db_update_command(id, result)
+    db_init if @db_conn.nil?
+    @db_conn.exec_params("UPDATE COMMANDS SET STATUS = $1 WHERE ID = $2", [result, id]).to_a
   end
 
   def db_insert_message_log message
@@ -119,12 +153,6 @@ class Server
     else
       false
     end
-  end
-
-  def action_sent_command data
-    device_code = data['Message']['ID']
-    message = data['Message']
-    @connected_clients[device_code].puts message if @connected_clients[device_code] && !message.nil?
   end
 
   def action_1
