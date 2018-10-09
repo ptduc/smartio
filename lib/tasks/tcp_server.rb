@@ -123,7 +123,7 @@ class Server
       relay3_status = val_boolean(data["Relay_3"]["status"])
       relay4_status = val_boolean(data["Relay_4"]["status"])
       db_init if @db_conn.nil?
-      params = [device_id, relay1_status, relay1_mode, relay2_status, relay2_mode, relay3_status, relay3_mode, relay4_status, relay4_mode, current_time]
+      params = [device_id, relay1_mode, relay1_status, relay2_mode, relay2_status, relay3_mode, relay3_status, relay4_mode, relay4_status, current_time]
       @db_conn.exec_params("UPDATE statuses  \
                             SET \"relay1_mode\"   = $2,
                                 \"relay1_status\" = $3,
