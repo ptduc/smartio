@@ -9,6 +9,7 @@ class CreateDota < ActiveRecord::Migration[5.2]
       t.string :pass
       t.string :name
       t.string :path
+      t.string :note
 
       t.timestamps
     end

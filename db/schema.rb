@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_071736) do
     t.string "code"
     t.bigint "unit_id"
     t.boolean "is_active", default: true
+    t.string "ip_address"
     t.integer "port"
     t.integer "ftime"
     t.integer "panel", limit: 2
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_10_09_071736) do
     t.string "pass"
     t.string "name"
     t.string "path"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

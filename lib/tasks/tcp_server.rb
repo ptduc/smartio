@@ -84,7 +84,7 @@ class Server
 
   def db_update_command(id, result)
     db_init if @db_conn.nil?
-    @db_conn.exec_params("UPDATE COMMANDS SET STATUS = $1 WHERE ID = $2", [result, id]).to_a
+    @db_conn.exec_params("UPDATE COMMANDS SET STATUS = $1 WHERE ID = $2", [result, id])
   end
 
   def db_insert_message_log message
@@ -109,6 +109,11 @@ class Server
   def db_get_device code
     db_init if @db_conn.nil?
     @db_conn.exec("SELECT ID, CODE FROM DEVICES WHERE CODE LIKE '#{code}' ").first
+  end
+
+  def db_update_device device
+    db_init if @db_conn.nil?
+    @db_conn.exec_params("UPDATE DEVICES SET ADDRESS = $1, PORT = $2, FTIME = $3 WHERE ID = $4", [device['address'] , device['port'], device['ftime'], device['id'] ])
   end
 
   def db_update_status_and_insert_status_logs(device_id = 1, data)
@@ -155,13 +160,17 @@ class Server
     end
   end
 
-  def action_1
+  def action_1 data
+    code = data['ID']
+    device = db_get_device code
+    device = db_insert_device code if device.nil?
   end
 
   def action_2 data
     code = data['ID']
     device = db_get_device code
     device = db_insert_device code if device.nil?
+    db_update_device device
   end
 
   def action_3

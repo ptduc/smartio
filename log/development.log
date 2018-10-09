@@ -4644,3 +4644,255 @@ Migrating to CreateDota (20181009071736)
   ↳ db/seeds.rb:8
   [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:8
+Started GET "/" for 10.0.2.2 at 2018-10-09 15:24:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/" for 10.0.2.2 at 2018-10-09 15:24:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (84.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (95.1ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (98.7ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (91.7ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  [1m[36mStatus Load (100.3ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (1274.8ms)
+  Rendered home/index.html.erb within layouts/application (843.3ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 9172ms (Views: 8561.8ms | ActiveRecord: 592.5ms)
+
+
+Completed 200 OK in 9976ms (Views: 9063.1ms | ActiveRecord: 753.2ms)
+
+
+Started GET "/control" for 10.0.2.2 at 2018-10-09 15:26:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ControlController#index as HTML
+  Rendering control/index.html.erb within layouts/application
+  [1m[36mDevice Load (90.2ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  ↳ app/views/control/index.html.erb:11
+  Rendered control/index.html.erb within layouts/application (93.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 278ms (Views: 177.7ms | ActiveRecord: 90.2ms)
+
+
+  [1m[35m (94.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (99.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (100.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7575465088729656930)[0m
+  ↳ bin/rails:9
+  [1m[35m (103.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDota (20181009071736)
+  [1m[35m (85.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (89.2ms)[0m  [1m[35mDROP TABLE "dota"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (94.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181009071736"]]
+  ↳ bin/rails:9
+  [1m[35m (88.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCommands (20181009012914)
+  [1m[35m (85.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (86.5ms)[0m  [1m[35mDROP TABLE "commands"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (94.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181009012914"]]
+  ↳ bin/rails:9
+  [1m[35m (87.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateMessageLogs (20181006033700)
+  [1m[35m (83.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (86.6ms)[0m  [1m[35mDROP TABLE "message_logs"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (97.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181006033700"]]
+  ↳ bin/rails:9
+  [1m[35m (86.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateStatusHistories (20181004154552)
+  [1m[35m (94.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (93.7ms)[0m  [1m[35mDROP TABLE "status_histories"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (93.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181004154552"]]
+  ↳ bin/rails:9
+  [1m[35m (90.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateStatuses (20181004154433)
+  [1m[35m (87.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (89.7ms)[0m  [1m[35mDROP TABLE "statuses"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (94.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181004154433"]]
+  ↳ bin/rails:9
+  [1m[35m (99.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateDevices (20181004154137)
+  [1m[35m (83.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (89.7ms)[0m  [1m[35mDROP TABLE "devices"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (90.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181004154137"]]
+  ↳ bin/rails:9
+  [1m[35m (89.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUnits (20181004153903)
+  [1m[35m (89.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (87.1ms)[0m  [1m[35mDROP TABLE "units"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (91.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181004153903"]]
+  ↳ bin/rails:9
+  [1m[35m (96.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (92.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(7575465088729656930)[0m
+  ↳ bin/rails:9
+  [1m[35m (90.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (91.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7575465088729656930)[0m
+  ↳ bin/rails:9
+  [1m[35m (96.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUnits (20181004153903)
+  [1m[35m (89.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (107.6ms)[0m  [1m[35mCREATE TABLE "units" ("id" bigserial primary key, "unit_code" character varying, "name" character varying, "address" character varying, "description" text, "is_active" boolean DEFAULT TRUE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181004153903_create_units.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (95.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181004153903"]]
+  ↳ bin/rails:9
+  [1m[35m (90.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateDevices (20181004154137)
+  [1m[35m (90.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (106.2ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "code" character varying, "unit_id" bigint, "is_active" boolean DEFAULT TRUE, "ip_address" character varying, "port" integer, "ftime" integer, "panel" smallint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_2d40966aaf"
+FOREIGN KEY ("unit_id")
+  REFERENCES "units" ("id")
+)[0m
+  ↳ db/migrate/20181004154137_create_devices.rb:3
+  [1m[35m (99.7ms)[0m  [1m[35mCREATE  INDEX  "index_devices_on_unit_id" ON "devices"  ("unit_id")[0m
+  ↳ db/migrate/20181004154137_create_devices.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (93.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181004154137"]]
+  ↳ bin/rails:9
+  [1m[35m (90.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateStatuses (20181004154433)
+  [1m[35m (87.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (108.3ms)[0m  [1m[35mCREATE TABLE "statuses" ("id" bigserial primary key, "device_id" bigint, "relay1_mode" smallint, "relay1_status" boolean, "time1_on" smallint, "time1_off" smallint, "times1" character varying, "on1" smallint, "relay2_mode" smallint, "relay2_status" boolean, "time2_on" smallint, "time2_off" smallint, "times2" character varying, "on2" smallint, "relay3_mode" smallint, "relay3_status" boolean, "time3_on" smallint, "time3_off" smallint, "times3" character varying, "on3" smallint, "relay4_mode" smallint, "relay4_status" boolean, "time4_on" smallint, "time4_off" smallint, "times4" character varying, "on4" smallint, "updated_at" timestamp, CONSTRAINT "fk_rails_14e2777ceb"
+FOREIGN KEY ("device_id")
+  REFERENCES "devices" ("id")
+)[0m
+  ↳ db/migrate/20181004154433_create_statuses.rb:3
+  [1m[35m (107.6ms)[0m  [1m[35mCREATE  INDEX  "index_statuses_on_device_id" ON "statuses"  ("device_id")[0m
+  ↳ db/migrate/20181004154433_create_statuses.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (97.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181004154433"]]
+  ↳ bin/rails:9
+  [1m[35m (91.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateStatusHistories (20181004154552)
+  [1m[35m (84.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (107.0ms)[0m  [1m[35mCREATE TABLE "status_histories" ("id" bigserial primary key, "device_id" bigint, "relay1_mode" smallint, "relay1_status" boolean DEFAULT FALSE, "time1_on" smallint, "time1_off" smallint, "times1" character varying, "on1" smallint, "relay2_mode" smallint, "relay2_status" boolean DEFAULT FALSE, "time2_on" smallint, "time2_off" smallint, "times2" character varying, "on2" smallint, "relay3_mode" smallint, "relay3_status" boolean DEFAULT FALSE, "time3_on" smallint, "time3_off" smallint, "times3" character varying, "on3" smallint, "relay4_mode" smallint, "relay4_status" boolean DEFAULT FALSE, "time4_on" smallint, "time4_off" smallint, "times4" character varying, "on4" smallint, "created_at" timestamp, CONSTRAINT "fk_rails_f079cffd0a"
+FOREIGN KEY ("device_id")
+  REFERENCES "devices" ("id")
+)[0m
+  ↳ db/migrate/20181004154552_create_status_histories.rb:3
+  [1m[35m (95.2ms)[0m  [1m[35mCREATE  INDEX  "index_status_histories_on_device_id" ON "status_histories"  ("device_id")[0m
+  ↳ db/migrate/20181004154552_create_status_histories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (98.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181004154552"]]
+  ↳ bin/rails:9
+  [1m[35m (86.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateMessageLogs (20181006033700)
+  [1m[35m (86.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (118.6ms)[0m  [1m[35mCREATE TABLE "message_logs" ("id" bigserial primary key, "content" character varying, "created_at" timestamp)[0m
+  ↳ db/migrate/20181006033700_create_message_logs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (90.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181006033700"]]
+  ↳ bin/rails:9
+  [1m[35m (90.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCommands (20181009012914)
+  [1m[35m (89.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (119.5ms)[0m  [1m[35mCREATE TABLE "commands" ("id" bigserial primary key, "code" character varying, "action" smallint, "command" text, "status" smallint DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181009012914_create_commands.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (98.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181009012914"]]
+  ↳ bin/rails:9
+  [1m[35m (86.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateDota (20181009071736)
+  [1m[35m (87.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (108.1ms)[0m  [1m[35mCREATE TABLE "dota" ("id" bigserial primary key, "name_version" character varying, "action" smallint, "ip_address" character varying, "port" smallint, "user" character varying, "pass" character varying, "name" character varying, "path" character varying, "note" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181009071736_create_dota.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (88.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181009071736"]]
+  ↳ bin/rails:9
+  [1m[35m (86.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (89.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (83.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (82.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (91.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7575465088729656930)[0m
+  ↳ bin/rails:9
+  [1m[35m (99.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (95.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (82.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mUnit Create (106.6ms)[0m  [1m[32mINSERT INTO "units" ("unit_code", "name", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["unit_code", "Admin"], ["name", "Admin Team"], ["address", "Sài Gòn"], ["created_at", "2018-10-09 15:38:51.100860"], ["updated_at", "2018-10-09 15:38:51.100860"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (84.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (95.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (90.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (95.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (85.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (91.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (86.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5128.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "smartio_development"[0m
+  ↳ bin/rails:9
+Started GET "/control" for 10.0.2.2 at 2018-10-09 15:40:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (89.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ControlController#index as HTML
+  Rendering control/index.html.erb within layouts/application
+  [1m[36mDevice Load (86.8ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  ↳ app/views/control/index.html.erb:11
+  Rendered control/index.html.erb within layouts/application (188.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 961ms (Views: 754.9ms | ActiveRecord: 180.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-10-09 15:40:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (98.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  Rendered home/index.html.erb within layouts/application (318.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 546ms (Views: 208.7ms | ActiveRecord: 305.6ms)
+
+
