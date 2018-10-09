@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dota
   resources :commands
   resources :message_logs
   resources :devices

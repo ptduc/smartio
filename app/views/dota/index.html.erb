@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dota</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name version</th>
+      <th>Action</th>
+      <th>Ip address</th>
+      <th>Port</th>
+      <th>User</th>
+      <th>Pass</th>
+      <th>Name</th>
+      <th>Path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dota.each do |dotum| %>
+      <tr>
+        <td><%= dotum.name_version %></td>
+        <td><%= dotum.action %></td>
+        <td><%= dotum.ip_address %></td>
+        <td><%= dotum.port %></td>
+        <td><%= dotum.user %></td>
+        <td><%= dotum.pass %></td>
+        <td><%= dotum.name %></td>
+        <td><%= dotum.path %></td>
+        <td><%= link_to 'Show', dotum %></td>
+        <td><%= link_to 'Edit', edit_dotum_path(dotum) %></td>
+        <td><%= link_to 'Destroy', dotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dotum', new_dotum_path %>

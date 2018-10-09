@@ -38,7 +38,7 @@ class Server
             end
           end
         end
-        puts "#{Time.now} ---- Scan command table #{commands.size}"
+        puts "#{Time.now} ---- Scanned command table: #{commands.size}"
         sleep 15
       end
     end
@@ -47,7 +47,7 @@ class Server
   def thread_waiting_messages
     loop do
         Thread.start(@server_socket.accept) do |client|
-          message = client.recv(1024);
+          message = client.recv(2048);
           if message
             db_insert_message_log message
             data = JSON.parse(message)
@@ -114,10 +114,10 @@ class Server
   def db_update_status_and_insert_status_logs(device_id = 1, data)
     if data || device_id
       current_time = Time.now
-      relay1_mode = val_boolean(data["Relay_1"]["mode"])
-      relay2_mode = val_boolean(data["Relay_2"]["mode"])
-      relay3_mode = val_boolean(data["Relay_3"]["mode"])
-      relay4_mode = val_boolean(data["Relay_4"]["mode"])
+      relay1_mode = data["Relay_1"]["mode"]
+      relay2_mode = data["Relay_2"]["mode"]
+      relay3_mode = data["Relay_3"]["mode"]
+      relay4_mode = data["Relay_4"]["mode"]
       relay1_status = val_boolean(data["Relay_1"]["status"])
       relay2_status = val_boolean(data["Relay_2"]["status"])
       relay3_status = val_boolean(data["Relay_3"]["status"])
@@ -125,14 +125,14 @@ class Server
       db_init if @db_conn.nil?
       params = [device_id, relay1_status, relay1_mode, relay2_status, relay2_mode, relay3_status, relay3_mode, relay4_status, relay4_mode, current_time]
       @db_conn.exec_params("UPDATE statuses  \
-                            SET \"relay1_mode\"  = $2,
-                                \"relay1_status\"= $3,
-                                \"relay2_mode\"  = $4,
-                                \"relay2_status\"= $5,
-                                \"relay3_mode\"  = $6,
-                                \"relay3_status\"= $7,
-                                \"relay4_mode\"  = $8,
-                                \"relay4_status\"= $9,
+                            SET \"relay1_mode\"   = $2,
+                                \"relay1_status\" = $3,
+                                \"relay2_mode\"   = $4,
+                                \"relay2_status\" = $5,
+                                \"relay3_mode\"   = $6,
+                                \"relay3_status\" = $7,
+                                \"relay4_mode\"   = $8,
+                                \"relay4_status\" = $9,
                                 \"updated_at\"    = $10
                             WHERE device_id = $1", params)
       @db_conn.exec_params("INSERT INTO status_histories(\"device_id\", \"relay1_mode\", \"relay1_status\", \"relay2_mode\", \"relay2_status\", \"relay3_mode\", \"relay3_status\",\"relay4_mode\", \"relay4_status\", \"created_at\")
@@ -158,7 +158,10 @@ class Server
   def action_1
   end
 
-  def action_2
+  def action_2 data
+    code = data['ID']
+    device = db_get_device code
+    device = db_insert_device code if device.nil?
   end
 
   def action_3
