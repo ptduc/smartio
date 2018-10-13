@@ -4896,3 +4896,27 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 546ms (Views: 208.7ms | ActiveRecord: 305.6ms)
 
 
+Started GET "/" for 10.0.2.2 at 2018-10-13 14:52:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (209.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (207.8ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  Rendered home/index.html.erb within layouts/application (915.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 3326ms (Views: 2324.3ms | ActiveRecord: 833.2ms)
+
+
+Started GET "/control" for 10.0.2.2 at 2018-10-13 14:53:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ControlController#index as HTML
+  Rendering control/index.html.erb within layouts/application
+  [1m[36mDevice Load (207.3ms)[0m  [1m[34mSELECT "devices".* FROM "devices"[0m
+  ↳ app/views/control/index.html.erb:11
+  Rendered control/index.html.erb within layouts/application (210.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 406ms (Views: 189.0ms | ActiveRecord: 207.3ms)
+
+
