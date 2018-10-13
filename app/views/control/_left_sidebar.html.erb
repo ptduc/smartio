@@ -1,0 +1,22 @@
+<div class="col-md-2 p-2 bg-white rounded shadow-sm">
+  <div class="box box-info">
+
+    <div class="box-body">
+      <table class="table table-bordered table-hover table-sm">
+      <thead class="thead-light text-center">
+        <th>
+          Danh sách thiết bị
+          <input type="text" name="device_search" class="form-control form-control-sm" placeholder="Lọc">
+        </th>
+      </thead>
+      <tbody>
+        <% @devices.each do |x| %>
+          <tr>
+            <td class="text-center"><a href="/#"><%= x.code %></a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

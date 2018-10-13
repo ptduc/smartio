@@ -7,7 +7,8 @@ class Server
   def initialize(port)
     @server_socket = TCPServer.new port
     @db_conn_string = 'postgres://smartio:smartio@kynguyenxanh.net:5432/smartio_development'
-    @db_conn = PG::Connection.new('postgres://smartio:smartio@kynguyenxanh.net:5432/smartio_development')
+  # @db_conn_string = 'postgres://smartio:smartio@kynguyenxanh.net:5432/smartio_production'
+    @db_conn = PG::Connection.new(@db_conn_string)
     @connected_clients = Hash.new
     @db_devices = db_get_list_devices
 
@@ -15,7 +16,7 @@ class Server
 
   def run
     puts "Server on running"
-    thread_sending_command
+    # thread_sending_command
     thread_waiting_messages
     rescue Interrupt => e
       @db_conn.close
