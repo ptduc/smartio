@@ -12,7 +12,7 @@
       <tbody>
         <% @devices.each do |x| %>
           <tr>
-            <td class="text-center"><a href="/#"><%= x.code %></a></td>
+            <td class="text-center"><a  @click="get_device(<%= x.id %>)"><%= x.code %></a></td>
           </tr>
         <% end %>
       </tbody>

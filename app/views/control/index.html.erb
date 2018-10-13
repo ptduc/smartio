@@ -1,10 +1,12 @@
-<div class="row p-3">
+<div id="control" class="row p-3">
   <%= render 'left_sidebar' %>
 
   <div class="col-md-10 p-2 bg-white rounded shadow-sm">
     <div class="box-header with-border">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+      <h5>Thông tin thiết bị</h5>
        <%= render 'device_info' %>
-
+      <h5>Cấu hình</h5>
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" href="#setting_relay" role="tab" data-toggle="tab">Setting Relay</a>

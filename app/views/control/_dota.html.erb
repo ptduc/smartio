@@ -3,7 +3,7 @@
   <div class="row">
       <label class="col-sm-2 col-form-label text-right">IP Address</label>
       <div class="col-sm-3">
-        <input type="text" name="city" class="form-control form-control-sm element-search">
+        <input type="text" name="city" class="form-control form-control-sm element-search" >
       </div>
   </div>
   <div class="row">
@@ -43,7 +43,7 @@
 
   <div class="row">
     <div class="col-md-5 text-center">
-      <button class="btn btn-secondary">Set</button>
+      <button class="btn btn-secondary" :disabled="enable_set">Set</button>
     </div>
   </div>
 </div>
