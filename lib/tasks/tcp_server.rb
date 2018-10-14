@@ -235,11 +235,11 @@ class Server
 					sql_cmd = sql_cmd + sql_sub
 					history_sub = "\"relay%01d_s_time\", \"relay%01d_s_time_on\"," %[j , j]
 					history_cmd = history_cmd + history_sub;
-					s_time.at(j) = time
-					s_time_on.at(j) = on_time
+					s_time[i] = time
+					s_time_on[i] = on_time
 				end
 				#update data to sql
-				sql_tail = "\updated_at\" = %s
+				sql_tail = "\"updated_at\" = %s
 							WHERE device_id = %d" %[Time.now, device["id"].to_i]
 				sql_cmd = sql_cmd + sql_tail
 				@db_conn.exec_params(sql_cmd)
