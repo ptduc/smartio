@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Unit.create(unit_code: 'Admin', name: 'Admin Team', address: 'Sài Gòn', is_active: true)

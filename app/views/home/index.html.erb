@@ -10,7 +10,7 @@
           <thead class="thead-light text-center">
             <tr>
               <th rowspan="2" class="text-center">ID</th>
-              <th rowspan="2" class="text-center">Khu vưc</th>
+              <th rowspan="2" class="text-center">Time</th>
               <th colspan="2" class="text-center">Relay 1</th>
               <th colspan="2" class="text-center">Relay 2</th>
               <th colspan="2" class="text-center">Relay 3</th>
@@ -28,102 +28,20 @@
             </tr>
           </thead>
           <tbody>
+            <% @devices.each do |device| %>
             <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
+              <td class="text-center"><a href="#"><%= device.code %></a></td>
+              <td class="text-center"><%= device.status.updated_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay1_mode) %></span></td>
+              <td class="text-center"><span class="label <%= device.status.relay1_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay1_status == true ? 'ON' : 'OFF' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay2_mode) %></span></td>
+              <td class="text-center"><span class="label <%= device.status.relay2_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay2_status == true ? 'ON' : 'OFF' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= device.status.relay3_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label <%= device.status.relay3_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay3_status == true ? 'ON' : 'OFF' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= device.status.relay4_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label <%= device.status.relay4_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay4_status == true ? 'ON' : 'OFF' %></span></td>
             </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
-            <tr>
-              <td class="text-center"><a href="pages/examples/invoice.html">00000001</a></td>
-              <td>Đinh Tiên Hoàng</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-              <td class="text-center">Manual</td>
-              <td class="text-center">ON</td>
-            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>

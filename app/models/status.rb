@@ -1,11 +1,11 @@
 class Status < ApplicationRecord
   belongs_to :device
-  enum relay1_mode: { manual: 0, auto: 1 }
-  enum replay1_status: { off: 0, on: 1 }
-  enum relay2_mode: { manual: 0, auto: 1 }
-  enum replay2_status: { off: 0, on: 1 }
-  enum relay3_mode: { manual: 0, auto: 1 }
-  enum replay3_status: { off: 0, on: 1 }
-  enum relay4_mode: { manual: 0, auto: 1 }
-  enum replay4_status: { off: 0, on: 1 }
+  # enum relay1_mode: { manual: false, auto: true }
+  # enum relay1_status: { off: false, on: true }
+  # enum relay2_mode: { manual2: false, auto2: true }
+  # enum relay2_status: { off: false, on: true }
+  # enum relay3_mode: { manual: false, auto: true }
+  # enum relay3_status: { off: false, on: true }
+  # enum relay4_mode: { manual: false, auto: true }
+  # enum relay4_status: { off: false, on: true }
 end
