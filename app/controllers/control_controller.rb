@@ -4,12 +4,12 @@ class ControlController < ApplicationController
   end
 
   def get_device
-    device = Device.find_by(id: params[:id])
-    render json: { 'device': device }
+    device = Device.includes(:status).find_by(id: params[:id])
+    render json: { 'device': device, 'status': device.status }
   end
 
   def create_command
-    command = Command.create(code: params[:code], action: params[:action_type], command: params[:command])
+    command = Command.create(device_id: params[:device_id], code: params[:code], action: params[:action_type], command: params[:command])
     render json: { 'command': command }
   end
 end

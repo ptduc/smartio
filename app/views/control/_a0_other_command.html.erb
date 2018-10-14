@@ -1,0 +1,18 @@
+<div role="tabpanel" class="tab-pane fade pb-2 pt-1 pl-3 pr-3" id="other_command">
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label text-right">Command</label>
+        <div class="col-sm-7">
+          <textarea class="form-control" rows="15" id="a0_command"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <button class="btn btn-secondary" :disabled="enable_set" @click="post_command(0)">Set</button>
+    </div>
+  </div>
+</div>
