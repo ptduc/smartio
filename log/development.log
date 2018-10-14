@@ -22789,3 +22789,344 @@ Processing by ControlController#index as HTML
 Completed 200 OK in 483ms (Views: 252.9ms | ActiveRecord: 207.8ms)
 
 
+Started GET "/" for 10.0.2.2 at 2018-10-14 09:58:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (217.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (221.9ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (216.2ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (2159.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 7646ms (Views: 5882.8ms | ActiveRecord: 1739.9ms)
+
+
+Started GET "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css" for 10.0.2.2 at 2018-10-14 09:58:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 10.0.2.2 at 2018-10-14 09:59:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (215.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (215.9ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (565.2ms)
+Completed 500 Internal Server Error in 645ms (ActiveRecord: 431.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_mode' for #<#<Class:0x00005583314bc440>:0x00007f49e28f1370>
+Did you mean?  get_cycle):
+    32:             <tr>
+    33:               <td class="text-center"><a href="#"><%= device.code %></a></td>
+    34:               <td class="text-center"><%= device.status.updated_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    35:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay1_mode) %></span></td>
+    36:               <td class="text-center"><span class="label <%= device.status.relay1_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay1_status == true ? 'ON' : 'OFF' %></span></td>
+    37:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay2_mode) %></span></td>
+    38:               <td class="text-center"><span class="label <%= device.status.relay2_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay2_status == true ? 'ON' : 'OFF' %></span></td>
+  
+app/views/home/index.html.erb:35:in `block in _app_views_home_index_html_erb___49095882536377688_69977655185220'
+app/views/home/index.html.erb:31:in `_app_views_home_index_html_erb___49095882536377688_69977655185220'
+Started GET "/" for 10.0.2.2 at 2018-10-14 10:01:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (215.9ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (216.0ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (598.3ms)
+Completed 500 Internal Server Error in 680ms (ActiveRecord: 431.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_mode' for #<#<Class:0x00005583314bc440>:0x00007f49e34b4298>
+Did you mean?  get_cycle):
+    32:             <tr>
+    33:               <td class="text-center"><a href="#"><%= device.code %></a></td>
+    34:               <td class="text-center"><%= device.status.updated_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    35:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay1_mode) %></span></td>
+    36:               <td class="text-center"><span class="label <%= device.status.relay1_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay1_status == true ? 'ON' : 'OFF' %></span></td>
+    37:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay2_mode) %></span></td>
+    38:               <td class="text-center"><span class="label <%= device.status.relay2_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay2_status == true ? 'ON' : 'OFF' %></span></td>
+  
+app/views/home/index.html.erb:35:in `block in _app_views_home_index_html_erb___49095882536377688_69977661351500'
+app/views/home/index.html.erb:31:in `_app_views_home_index_html_erb___49095882536377688_69977661351500'
+Started GET "/" for 10.0.2.2 at 2018-10-14 10:02:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (218.4ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (218.2ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (666.5ms)
+Completed 500 Internal Server Error in 707ms (ActiveRecord: 436.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_mode' for #<#<Class:0x00005583314bc440>:0x00007f49e19ba258>
+Did you mean?  get_cycle):
+    32:             <tr>
+    33:               <td class="text-center"><a href="#"><%= device.code %></a></td>
+    34:               <td class="text-center"><%= device.status.updated_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    35:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay1_mode) %></span></td>
+    36:               <td class="text-center"><span class="label <%= device.status.relay1_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay1_status == true ? 'ON' : 'OFF' %></span></td>
+    37:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay2_mode) %></span></td>
+    38:               <td class="text-center"><span class="label <%= device.status.relay2_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay2_status == true ? 'ON' : 'OFF' %></span></td>
+  
+app/views/home/index.html.erb:35:in `block in _app_views_home_index_html_erb___49095882536377688_69977647254660'
+app/views/home/index.html.erb:31:in `_app_views_home_index_html_erb___49095882536377688_69977647254660'
+Started GET "/" for 10.0.2.2 at 2018-10-14 10:03:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (216.1ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (215.5ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (573.3ms)
+Completed 500 Internal Server Error in 658ms (ActiveRecord: 431.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_mode' for #<#<Class:0x00005583314bc440>:0x00007f49e2fb4978>
+Did you mean?  get_cycle):
+    32:             <tr>
+    33:               <td class="text-center"><a href="#"><%= device.code %></a></td>
+    34:               <td class="text-center"><%= device.status.updated_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    35:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay1_mode) %></span></td>
+    36:               <td class="text-center"><span class="label <%= device.status.relay1_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay1_status == true ? 'ON' : 'OFF' %></span></td>
+    37:               <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay2_mode) %></span></td>
+    38:               <td class="text-center"><span class="label <%= device.status.relay2_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay2_status == true ? 'ON' : 'OFF' %></span></td>
+  
+app/views/home/index.html.erb:35:in `block in _app_views_home_index_html_erb___49095882536377688_69977658730900'
+app/views/home/index.html.erb:31:in `_app_views_home_index_html_erb___49095882536377688_69977658730900'
+Started GET "/" for 10.0.2.2 at 2018-10-14 10:04:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (207.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (209.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (208.2ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (2013.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 2636ms (Views: 940.7ms | ActiveRecord: 1668.6ms)
+
+
+Started GET "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css" for 10.0.2.2 at 2018-10-14 10:04:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 10.0.2.2 at 2018-10-14 10:07:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (209.2ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (207.0ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (857.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 1077ms (Views: 419.7ms | ActiveRecord: 626.6ms)
+
+
+Started GET "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css" for 10.0.2.2 at 2018-10-14 10:07:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css" for 10.0.2.2 at 2018-10-14 10:08:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/assets/libs/toastr.js.map"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/vagrant/smartio/app/assets/stylesheets/libs/toastr.min.css"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/assets/libs/axios.min.map"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'

@@ -3,7 +3,7 @@ require 'byebug'
 
 s = TCPSocket.new 'kynguyenxanh.net', 3003
 mes = '{
-  "ID": "00000001",
+  "ID": "10000002",
   "Action": 5,
   "Relay_1":  {
     "mode": 0,

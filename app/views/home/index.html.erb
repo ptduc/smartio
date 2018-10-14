@@ -32,9 +32,9 @@
             <tr>
               <td class="text-center"><a href="#"><%= device.code %></a></td>
               <td class="text-center"><%= device.status.updated_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
-              <td class="text-center"><span class="label label-manual"><%= device.status.relay1_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay1_mode) %></span></td>
               <td class="text-center"><span class="label <%= device.status.relay1_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay1_status == true ? 'ON' : 'OFF' %></span></td>
-              <td class="text-center"><span class="label label-manual"><%= device.status.relay2_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(device.status.relay2_mode) %></span></td>
               <td class="text-center"><span class="label <%= device.status.relay2_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay2_status == true ? 'ON' : 'OFF' %></span></td>
               <td class="text-center"><span class="label label-manual"><%= device.status.relay3_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
               <td class="text-center"><span class="label <%= device.status.relay3_status == true ? 'label-on' : 'label-off' %>"><%= device.status.relay3_status == true ? 'ON' : 'OFF' %></span></td>
