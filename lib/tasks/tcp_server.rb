@@ -148,16 +148,12 @@ class Server
 
   def val_boolean val
     case val
-    when 'off'
-      false
-    when 'manual'
-      false
-    when 'on'
-      true
-    when 'off'
-      false
-    else
-      false
+    when 0
+		false
+    when 1
+		true
+	else 
+		false
     end
   end
 
@@ -178,6 +174,84 @@ class Server
   end
 
   def action_4
+	code = data['ID']
+	device = db_get_device code
+	device = db_insert_device code if device.nil?
+	if((nil != device["id"].to_i) && (nil != data))
+		for i in 1..4
+			relay_name = "Relay_%01d" %i
+			relay_mode = data[relay_name]["mode"]
+			case relay_mode
+			when 0
+				#update data tio sql
+				sql_cmd = "UPDATE statuses \
+				SET \"relay%01d_mode\" = %01d,
+					 \"updated_at\"    = %s
+				WHERE device_id = %d" %[i, relay_mode, Time.now, device["id"].to_i]
+				@db_conn.exec_params(sql_cmd)
+				#log history
+				history_cmd = "INSERT INTO status_histories(\"device_id\", \"relay%01d_mode\", \"created_at\") VALUES(%d, %01d, %s)" %[i, device["id"].to_i, relay_mode, Time.now]
+				@db_conn.exec_params(history_cmd)
+			when 1
+				#update data tio sql
+				sql_cmd = "UPDATE statuses \
+				SET \"relay%01d_mode\" = %01d,
+					 \"updated_at\"    = %s
+				WHERE device_id = %d" %[i, relay_mode, Time.now, device["id"].to_i]
+				@db_conn.exec_params(sql_cmd)
+				#log history
+				history_cmd = "INSERT INTO status_histories(\"device_id\", \"relay%01d_mode\", \"created_at\") VALUES(%d, %01d, %s)" %[i, device["id"].to_i, relay_mode, Time.now]
+				@db_conn.exec_params(history_cmd)
+			when 2
+				time_on =  relay1_mode = data[relay_name]["time_on"]
+				time_off = relay1_mode = data[relay_name]["time_off"]
+				#update data to sql
+				sql_cmd = "UPDATE statuses \
+				SET \"relay%01d_mode\" = %01d,
+					\"relay%01d_time_on\" = %d,
+					\"relay%01d_time_off\" = %d,
+					 \"updated_at\"    = %s
+				WHERE device_id = %d" %[i, relay_mode, i, time_on, i, time_off, Time.now, device["id"].to_i]
+				@db_conn.exec_params(sql_cmd)
+				#log history
+				history_cmd = "INSERT INTO status_histories(\"device_id\", \"relay%01d_mode\", \"relay%01d_time_on\", \"relay%01d_time_off\", \"created_at\") VALUES(%d, %01d, %d, %d, %s)" %[i, i, i, device["id"].to_i, relay_mode, time_on, time_off, Time.now]
+				@db_conn.exec_params(history_cmd)
+			when 3
+				times = data[relay_name]["times"]
+				sql_cmd = "UPDATE statuses \
+				SET \"relay%01d_mode\" = %01d,
+				     "
+				history_cmd = "INSERT INTO status_histories(\"device_id\", \"relay%01d_mode\", " %i
+				s_time = Array.new(5)
+				s_time_on = Array.new(5)
+				for j in 0..4
+					time_name = "times_%01d" %j
+					time = data[relay_name][time_name]
+					time_on_name = "on_%01d" %j
+					on_time = data[relay_name][time_name]
+					sql_sub = "\"relay%01d_s_time\" = %s,
+								\"relay%01d_s_time_on\" = %d,
+								"
+					sql_cmd = sql_cmd + sql_sub
+					history_sub = "\"relay%01d_s_time\", \"relay%01d_s_time_on\"," %[j , j]
+					history_cmd = history_cmd + history_sub;
+					s_time[i] = time
+					s_time_on[i] = on_time
+				end
+				#update data to sql
+				sql_tail = "\"updated_at\" = %s
+							WHERE device_id = %d" %[Time.now, device["id"].to_i]
+				sql_cmd = sql_cmd + sql_tail
+				@db_conn.exec_params(sql_cmd)
+				#log history
+				history_tail = "\"created_at\") VALUES(%d, %01d, %s, %d, %s, %d, %s, %d, %s, %d, %s, %d, %s)" %[device["id"].to_i, relay_mode, s_time.at(0), s_time_on.at(0), s_time.at(1), s_time_on.at(1), s_time.at(2), s_time_on.at(2), s_time.at(3), s_time_on.at(3), s_time.at(4), s_time_on.at(4)]
+				history_cmd = history_cmd + history_tail
+				@db_conn.exec_params(history_cmd)
+			else
+			end
+		end
+		
+	end
   end
 
   # Bản tin định kỳ
