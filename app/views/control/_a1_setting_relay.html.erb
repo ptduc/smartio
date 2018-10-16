@@ -5,175 +5,214 @@
     </div>
   </div>
   <div class="row p-1">
-    <table class="table table-bordered table-sm">
-      <thead class="thead-light text-center">
-        <tr>
-          <th colspan="2" class="text-center">Relay 1</th>
-          <th colspan="2" class="text-center">Relay 2</th>
-          <th colspan="2" class="text-center">Relay 3</th>
-          <th colspan="2" class="text-center">Relay 4</th>
-        </tr>
-        <tr>
-          <th class="text-center">Mode</th>
-          <th class="text-center">Status</th>
-          <th class="text-center">Mode</th>
-          <th class="text-center">Status</th>
-          <th class="text-center">Mode</th>
-          <th class="text-center">Status</th>
-          <th class="text-center">Mode</th>
-          <th class="text-center">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-center" width="12%">
-            <select id="a1_relay1_mode" class="form-control-sm" v-model="status.relay1_mode">
-              <option value="0">Turn ON</option>
-              <option value="1">Turn OFF</option>
-              <option value="2">Auto Mode</option>
-              <option value="3">Scheduler Mode</option>
-            </select>
-          </td>
-          <td class="text-center" width="12%">
-            <div v-if="status.relay1_mode < 2">
-              {{status.relay1_status}}
-            </div>
-            <div v-if="status.relay1_mode == 2">
-              <input type="text" id="a1_time1_on" v-model="status.time1_on" class="form-control" placeholder="Time on">
-              <input type="text" id="a1_time1_off" v-model="status.time1_off" class="form-control" placeholder="Time off">
-            </div>
-            <div v-if="status.relay1_mode == 3">
-              <select id="a1_times1" v-model="status.times1" class="form-control-sm mb-2" style="width:99%">
-                <option value="0">1</option>
-                <option value="1">2</option>
-                <option value="2">3</option>
-                <option value="3">4</option>
-                <option value="4">5</option>
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm">
+        <thead class="thead-light text-center">
+          <tr>
+            <th colspan="2" class="text-center">Relay 1</th>
+            <th colspan="2" class="text-center">Relay 2</th>
+            <th colspan="2" class="text-center">Relay 3</th>
+            <th colspan="2" class="text-center">Relay 4</th>
+          </tr>
+          <tr>
+            <th class="text-center">Mode</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Mode</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Mode</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Mode</th>
+            <th class="text-center">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center" width="12%">
+              <select id="a1_relay1_mode" class="form-control-sm" v-model="status.relay1_mode">
+                <option value="0">Turn ON</option>
+                <option value="1">Turn OFF</option>
+                <option value="2">Auto Mode</option>
+                <option value="3">Scheduler Mode</option>
               </select>
-              <input type="text" id="a1_times1_0" v-model="status.times1_0" class="form-control mb-1" placeholder="Times 0">
-              <input type="text" id="a1_on1_0" v-model="status.on1" class=" form-control mb-2" placeholder="On 0">
-              <input type="text" id="a1_times1_1" v-model="status.times1_1" class="form-control mb-1" placeholder="Times 1">
-              <input type="text" id="a1_on1_1" v-model="status.on1" class=" form-control mb-2" placeholder="On 1">
-              <input type="text" id="a1_times1_2" v-model="status.times1_2" class="form-control mb-1" placeholder="Times 2">
-              <input type="text" id="a1_on1_2" v-model="status.on1" class=" form-control mb-2" placeholder="On 2">
-              <input type="text" id="a1_times1_3" v-model="status.times1_3" class="form-control mb-1" placeholder="Times 3">
-              <input type="text" id="a1_on1_3" v-model="status.on1" class=" form-control mb-2" placeholder="On 3">
-              <input type="text" id="a1_times1_4" v-model="status.times1_4" class="form-control mb-1" placeholder="Times 4">
-              <input type="text" id="a1_on1_4" v-model="status.on1" class=" form-control mb-2" placeholder="On 4">
-            </div>
-          </td>
-          <td class="text-center" width="12%">
-            <select id="a1_relay2_mode" class="form-control-sm" v-model="status.relay2_mode">
-              <option value="0">Turn ON</option>
-              <option value="1">Turn OFF</option>
-              <option value="2">Auto Mode</option>
-              <option value="3">Scheduler Mode</option>
-            </select>
-          </td>
-          <td class="text-center" width="12%">
-            <div v-if="status.relay2_mode < 2">
-              {{status.relay2_status}}
-            </div>
-            <div v-if="status.relay2_mode == 2">
-              <input type="text" id="a1_time2_on" v-model="status.time2_on" class="form-control" placeholder="Time on">
-              <input type="text" id="a1_time2_off" v-model="status.time2_off" class="form-control" placeholder="Time off">
-            </div>
-            <div v-if="status.relay2_mode == 3">
-              <select id="a1_times2" v-model="status.times2" class="form-control-sm mb-2" style="width:99%">
-                <option value="0">1</option>
-                <option value="1">2</option>
-                <option value="2">3</option>
-                <option value="3">4</option>
-                <option value="4">5</option>
+            </td>
+            <td class="text-center" width="12%">
+              <div v-if="status.relay1_mode < 2">
+                {{status.relay1_status}}
+              </div>
+              <div v-if="status.relay1_mode == 2">
+                <input type="text" id="a1_time1_on" v-model="status.time1_on" class="form-control" placeholder="Time on">
+                <input type="text" id="a1_time1_off" v-model="status.time1_off" class="form-control" placeholder="Time off">
+              </div>
+              <div v-if="status.relay1_mode == 3">
+                <select id="a1_times1" v-model="status.times1" class="form-control-sm mb-2" style="width:99%">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                </select>
+                <div v-if="status.times1 >= 0">
+                  <input type="text" id="a1_times1_0" v-model="status.times1_0" class="form-control mb-1" placeholder="Times 0">
+                  <input type="text" id="a1_on1_0" v-model="status.on1_0" class=" form-control mb-2" placeholder="On 0">
+                </div>
+                <div v-if="status.times1 >= 1">
+                  <input type="text" id="a1_times1_1" v-model="status.times1_1" class="form-control mb-1" placeholder="Times 1">
+                  <input type="text" id="a1_on1_1" v-model="status.on1_1" class=" form-control mb-2" placeholder="On 1">
+                </div>
+                <div v-if="status.times1 >= 2">
+                  <input type="text" id="a1_times1_2" v-model="status.times1_2" class="form-control mb-1" placeholder="Times 2">
+                  <input type="text" id="a1_on1_2" v-model="status.on1_2" class=" form-control mb-2" placeholder="On 2">
+                </div>
+                <div v-if="status.times1 >= 3">
+                  <input type="text" id="a1_times1_3" v-model="status.times1_3" class="form-control mb-1" placeholder="Times 3">
+                  <input type="text" id="a1_on1_3" v-model="status.on1_3" class=" form-control mb-2" placeholder="On 3">
+                </div>
+                <div v-if="status.times1 >= 4">
+                  <input type="text" id="a1_times1_4" v-model="status.times1_4" class="form-control mb-1" placeholder="Times 4">
+                  <input type="text" id="a1_on1_4" v-model="status.on1_4" class=" form-control mb-2" placeholder="On 4">
+                </div>
+            </td>
+            <td class="text-center" width="12%">
+              <select id="a1_relay2_mode" class="form-control-sm" v-model="status.relay2_mode">
+                <option value="0">Turn ON</option>
+                <option value="1">Turn OFF</option>
+                <option value="2">Auto Mode</option>
+                <option value="3">Scheduler Mode</option>
               </select>
-              <input type="text" id="a1_times2_0" v-model="status.times2_0" class="form-control mb-1" placeholder="Times 0">
-              <input type="text" id="a1_on2_0" v-model="status.on1" class=" form-control mb-2" placeholder="On 0">
-              <input type="text" id="a1_times2_1" v-model="status.times2_1" class="form-control mb-1" placeholder="Times 1">
-              <input type="text" id="a1_on2_1" v-model="status.on1" class=" form-control mb-2" placeholder="On 1">
-              <input type="text" id="a1_times2_2" v-model="status.times2_2" class="form-control mb-1" placeholder="Times 2">
-              <input type="text" id="a1_on2_2" v-model="status.on1" class=" form-control mb-2" placeholder="On 2">
-              <input type="text" id="a1_times2_3" v-model="status.times2_3" class="form-control mb-1" placeholder="Times 3">
-              <input type="text" id="a1_on2_3" v-model="status.on1" class=" form-control mb-2" placeholder="On 3">
-              <input type="text" id="a1_times2_4" v-model="status.times2_4" class="form-control mb-1" placeholder="Times 4">
-              <input type="text" id="a1_on2_4" v-model="status.on1" class=" form-control mb-2" placeholder="On 4">
-            </div>
-          </td>
-          <td class="text-center" width="12%">
-            <select id="a1_relay3_mode" class="form-control-sm" v-model="status.relay3_mode">
-              <option value="0">Turn ON</option>
-              <option value="1">Turn OFF</option>
-              <option value="2">Auto Mode</option>
-              <option value="3">Scheduler Mode</option>
-            </select>
-          </td>
-          <td class="text-center" width="12%">
-            <div v-if="status.relay3_mode < 2">
-              {{status.relay3_status}}
-            </div>
-            <div v-if="status.relay3_mode == 2">
-              <input type="text" id="a1_time3_on" v-model="status.time3_on" class="form-control" placeholder="Time on">
-              <input type="text" id="a1_time3_off" v-model="status.time3_off" class="form-control" placeholder="Time off">
-            </div>
-            <div v-if="status.relay3_mode == 3">
-              <select id="a1_times3" v-model="status.times3" class="form-control-sm mb-2" style="width:99%">
-                <option value="0">1</option>
-                <option value="1">2</option>
-                <option value="2">3</option>
-                <option value="3">4</option>
-                <option value="4">5</option>
+            </td>
+            <td class="text-center" width="12%">
+              <div v-if="status.relay2_mode < 2">
+                {{status.relay2_status}}
+              </div>
+              <div v-if="status.relay2_mode == 2">
+                <input type="text" id="a1_time2_on" v-model="status.time2_on" class="form-control" placeholder="Time on">
+                <input type="text" id="a1_time2_off" v-model="status.time2_off" class="form-control" placeholder="Time off">
+              </div>
+              <div v-if="status.relay2_mode == 3">
+                <select id="a1_times2" v-model="status.times2" class="form-control-sm mb-2" style="width:99%">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                </select>
+                <div v-if="status.times2 >= 0">
+                  <input type="text" id="a1_times2_0" v-model="status.times2_0" class="form-control mb-1" placeholder="Times 0">
+                  <input type="text" id="a1_on2_0" v-model="status.on2_0" class=" form-control mb-2" placeholder="On 0">
+                </div>
+                <div v-if="status.times2 >= 1">
+                  <input type="text" id="a1_times2_1" v-model="status.times2_1" class="form-control mb-1" placeholder="Times 1">
+                  <input type="text" id="a1_on2_1" v-model="status.on2_1" class=" form-control mb-2" placeholder="On 1">
+                </div>
+                <div v-if="status.times2 >= 2">
+                  <input type="text" id="a1_times2_2" v-model="status.times2_2" class="form-control mb-1" placeholder="Times 2">
+                  <input type="text" id="a1_on2_2" v-model="status.on2_2" class=" form-control mb-2" placeholder="On 2">
+                </div>
+                <div v-if="status.times2 >= 3">
+                  <input type="text" id="a1_times2_3" v-model="status.times2_3" class="form-control mb-1" placeholder="Times 3">
+                  <input type="text" id="a1_on2_3" v-model="status.on2_3" class=" form-control mb-2" placeholder="On 3">
+                </div>
+                <div v-if="status.times2 >= 4">
+                  <input type="text" id="a1_times2_4" v-model="status.times2_4" class="form-control mb-1" placeholder="Times 4">
+                  <input type="text" id="a1_on2_4" v-model="status.on2_4" class=" form-control mb-2" placeholder="On 4">
+                </div>
+              </div>
+            </td>
+            <td class="text-center" width="12%">
+              <select id="a1_relay3_mode" class="form-control-sm" v-model="status.relay3_mode">
+                <option value="0">Turn ON</option>
+                <option value="1">Turn OFF</option>
+                <option value="2">Auto Mode</option>
+                <option value="3">Scheduler Mode</option>
               </select>
-              <input type="text" id="a1_times3_0" v-model="status.times3_0" class="form-control mb-1" placeholder="Times 0">
-              <input type="text" id="a1_on3_0" v-model="status.on1" class=" form-control mb-2" placeholder="On 0">
-              <input type="text" id="a1_times3_1" v-model="status.times3_1" class="form-control mb-1" placeholder="Times 1">
-              <input type="text" id="a1_on3_1" v-model="status.on1" class=" form-control mb-2" placeholder="On 1">
-              <input type="text" id="a1_times3_2" v-model="status.times3_2" class="form-control mb-1" placeholder="Times 2">
-              <input type="text" id="a1_on3_2" v-model="status.on1" class=" form-control mb-2" placeholder="On 2">
-              <input type="text" id="a1_times3_3" v-model="status.times3_3" class="form-control mb-1" placeholder="Times 3">
-              <input type="text" id="a1_on3_3" v-model="status.on1" class=" form-control mb-2" placeholder="On 3">
-              <input type="text" id="a1_times3_4" v-model="status.times3_4" class="form-control mb-1" placeholder="Times 4">
-              <input type="text" id="a1_on3_4" v-model="status.on1" class=" form-control mb-2" placeholder="On 4">
-            </div>
-          </td>
-          <td class="text-center" width="12%">
-            <select id="a1_relay4_mode" class="form-control-sm" v-model="status.relay4_mode">
-              <option value="0">Turn ON</option>
-              <option value="1">Turn OFF</option>
-              <option value="2">Auto Mode</option>
-              <option value="3">Scheduler Mode</option>
-            </select>
-          </td>
-          <td class="text-center" width="12%">
-            <div v-if="status.relay4_mode < 2">
-              {{status.relay4_status}}
-            </div>
-            <div v-if="status.relay4_mode == 2">
-              <input type="text" id="a1_time4_on" v-model="status.time4_on" class="form-control" placeholder="Time on">
-              <input type="text" id="a1_time4_off" v-model="status.time4_off" class="form-control" placeholder="Time off">
-            </div>
-            <div v-if="status.relay4_mode == 3">
-              <select id="a1_times4" v-model="status.times4" class="form-control-sm mb-2" style="width:99%">
-                <option value="0">1</option>
-                <option value="1">2</option>
-                <option value="2">3</option>
-                <option value="3">4</option>
-                <option value="4">5</option>
+            </td>
+            <td class="text-center" width="12%">
+              <div v-if="status.relay3_mode < 2">
+                {{status.relay3_status}}
+              </div>
+              <div v-if="status.relay3_mode == 2">
+                <input type="text" id="a1_time3_on" v-model="status.time3_on" class="form-control" placeholder="Time on">
+                <input type="text" id="a1_time3_off" v-model="status.time3_off" class="form-control" placeholder="Time off">
+              </div>
+              <div v-if="status.relay3_mode == 3">
+                <select id="a1_times3" v-model="status.times3" class="form-control-sm mb-2" style="width:99%">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                </select>
+                <div v-if="status.times3 >= 0">
+                  <input type="text" id="a1_times3_0" v-model="status.times3_0" class="form-control mb-1" placeholder="Times 0">
+                  <input type="text" id="a1_on3_0" v-model="status.on3_0" class=" form-control mb-2" placeholder="On 0">
+                </div>
+                <div v-if="status.times3 >= 1">
+                  <input type="text" id="a1_times3_1" v-model="status.times3_1" class="form-control mb-1" placeholder="Times 1">
+                  <input type="text" id="a1_on3_1" v-model="status.on3_1" class=" form-control mb-2" placeholder="On 1">
+                </div>
+                <div v-if="status.times3 >= 2">
+                  <input type="text" id="a1_times3_2" v-model="status.times3_2" class="form-control mb-1" placeholder="Times 2">
+                  <input type="text" id="a1_on3_2" v-model="status.on3_2" class=" form-control mb-2" placeholder="On 2">
+                </div>
+                <div v-if="status.times3 >= 3">
+                  <input type="text" id="a1_times3_3" v-model="status.times3_3" class="form-control mb-1" placeholder="Times 3">
+                  <input type="text" id="a1_on3_3" v-model="status.on3_3" class=" form-control mb-2" placeholder="On 3">
+                </div>
+                <div v-if="status.times3 >= 4">
+                  <input type="text" id="a1_times3_4" v-model="status.times3_4" class="form-control mb-1" placeholder="Times 4">
+                  <input type="text" id="a1_on3_4" v-model="status.on3_4" class=" form-control mb-2" placeholder="On 4">
+                </div>
+            </td>
+            <td class="text-center" width="12%">
+              <select id="a1_relay4_mode" class="form-control-sm" v-model="status.relay4_mode">
+                <option value="0">Turn ON</option>
+                <option value="1">Turn OFF</option>
+                <option value="2">Auto Mode</option>
+                <option value="3">Scheduler Mode</option>
               </select>
-              <input type="text" id="a1_times4_0" v-model="status.times4_0" class="form-control mb-1" placeholder="Times 0">
-              <input type="text" id="a1_on4_0" v-model="status.on1" class=" form-control mb-2" placeholder="On 0">
-              <input type="text" id="a1_times4_1" v-model="status.times4_1" class="form-control mb-1" placeholder="Times 1">
-              <input type="text" id="a1_on4_1" v-model="status.on1" class=" form-control mb-2" placeholder="On 1">
-              <input type="text" id="a1_times4_2" v-model="status.times4_2" class="form-control mb-1" placeholder="Times 2">
-              <input type="text" id="a1_on4_2" v-model="status.on1" class=" form-control mb-2" placeholder="On 2">
-              <input type="text" id="a1_times4_3" v-model="status.times4_3" class="form-control mb-1" placeholder="Times 3">
-              <input type="text" id="a1_on4_3" v-model="status.on1" class=" form-control mb-2" placeholder="On 3">
-              <input type="text" id="a1_times4_4" v-model="status.times4_4" class="form-control mb-1" placeholder="Times 4">
-              <input type="text" id="a1_on4_4" v-model="status.on1" class=" form-control mb-2" placeholder="On 4">
-            </div>
-          </td>
-        </tr>
+            </td>
+            <td class="text-center" width="12%">
+              <div v-if="status.relay4_mode < 2">
+                {{status.relay4_status}}
+              </div>
+              <div v-if="status.relay4_mode == 2">
+                <input type="text" id="a1_time4_on" v-model="status.time4_on" class="form-control" placeholder="Time on">
+                <input type="text" id="a1_time4_off" v-model="status.time4_off" class="form-control" placeholder="Time off">
+              </div>
+              <div v-if="status.relay4_mode == 3">
+                <select id="a1_times4" v-model="status.times4" class="form-control-sm mb-2" style="width:99%">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                </select>
+                <div v-if="status.times4 >= 0">
+                  <input type="text" id="a1_times4_0" v-model="status.times4_0" class="form-control mb-1" placeholder="Times 0">
+                  <input type="text" id="a1_on4_0" v-model="status.on4_0" class=" form-control mb-2" placeholder="On 0">
+                </div>
+                <div v-if="status.times4 >= 1">
+                  <input type="text" id="a1_times4_1" v-model="status.times4_1" class="form-control mb-1" placeholder="Times 1">
+                  <input type="text" id="a1_on4_1" v-model="status.on4_1" class=" form-control mb-2" placeholder="On 1">
+                </div>
+                <div v-if="status.times4 >= 2">
+                  <input type="text" id="a1_times4_2" v-model="status.times4_2" class="form-control mb-1" placeholder="Times 2">
+                  <input type="text" id="a1_on4_2" v-model="status.on_2" class=" form-control mb-2" placeholder="On 2">
+                </div>
+                <div v-if="status.times4 >= 3">
+                  <input type="text" id="a1_times4_3" v-model="status.times4_3" class="form-control mb-1" placeholder="Times 3">
+                  <input type="text" id="a1_on4_3" v-model="status.on4_3" class=" form-control mb-2" placeholder="On 3">
+                </div>
+                <div v-if="status.times4 >= 4">
+                  <input type="text" id="a1_times4_4" v-model="status.times4_4" class="form-control mb-1" placeholder="Times 4">
+                  <input type="text" id="a1_on4_4" v-model="status.on4_4" class=" form-control mb-2" placeholder="On 4">
+                </div>
+            </td>
+          </tr>
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="row p-1">
     <div class="col-md-12 text-center">

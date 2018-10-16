@@ -134,9 +134,14 @@ new Vue({
           break;
         case "3":
           command = { "mode": mode,
-                      "times": $('#a1_times'+ number).val(),
-                      "on": $('#a1_on'+ number).val()
+                      "times": $('#a1_times'+ number).val()
                     };
+          var times = $('#a1_times'+ number).val();
+          var time_on = {}
+          for(var i = 0; i < times; i++){
+            command['times_'+i] = $('#a1_times'+number+'_'+i).val();
+            command['on_'+i] = $('#a1_on'+number+'_'+i).val();
+          }
           break;
         default:
           command = {"mode": mode };
