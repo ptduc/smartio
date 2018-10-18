@@ -58,7 +58,7 @@ new Vue({
                       device_id: $('#device_id').val(),
                       code: code,
                       action_type: action,
-                      command: command,
+                      command: JSON.stringify(command),
                       authenticity_token: $('#authenticity_token').val()
                     }
       var url = '/control/create_command/';
@@ -76,7 +76,7 @@ new Vue({
     action_1: function(code){
       return {
         "ID": code,
-        "Action": "1",
+        "Action": 1,
         "Relay_1": this.mode_setting(1),
         "Relay_2": this.mode_setting(2),
         "Relay_3": this.mode_setting(3),
@@ -86,7 +86,7 @@ new Vue({
     action_2: function(code){
       return {
         "ID": code,
-        "Action": "2",
+        "Action": 2,
         "address": $('#a2_ip_address').val(),
         "port": $('#a2_port').val(),
         "ftime": $('#a2_ftime').val()
@@ -95,26 +95,27 @@ new Vue({
     action_3: function(code){
       return {
         "ID": code,
-        "Action": "3",
+        "Action": 3,
         "panel": $('input[name=a3_panel]:checked').val()
       }
     },
     action_4: function(code){
       return {
         "ID": code,
-        "Action": "4"
+
+        "Action": 4
       }
     },
     action_6: function(code){
       return {
         "ID": code,
-        "Action": "6"
+        "Action": 6
       }
     },
     action_7: function(code){
       return {
         "ID": code,
-        "Action": "7",
+        "Action": 7,
         "address": $('#a7_ip_address').val(),
         "port": $('#a7_port').val(),
         "user": $('#a7_user').val(),
