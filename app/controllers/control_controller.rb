@@ -1,4 +1,5 @@
 class ControlController < ApplicationController
+  before_action :authenticate_user!
   include ControlHelper
   def index
     @devices = Device.all

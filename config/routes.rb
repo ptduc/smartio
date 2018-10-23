@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :dota
   resources :commands
   resources :message_logs

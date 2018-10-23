@@ -45,8 +45,9 @@ class MQTT_Client
 
   def thread_waiting_messages
     @mqtt_client.get('lamp/info/#') do |topic, message|
+      db_insert_message_log "#{topic}: #{message}"
       if message
-        db_insert_message_log "#{topic}: #{message}"
+        db_insert_message_log message
         data = JSON.parse(message)
         if data['ID']
           puts "#{Time.now} ---- Received from  #{data['ID']}"
@@ -184,4 +185,3 @@ class MQTT_Client
 
 end
 
-MQTT_Client.new('kynguyenxanh.org', 1883).run
