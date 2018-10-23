@@ -1,4 +1,5 @@
 class ControlController < ApplicationController
+  include ControlHelper
   def index
     @devices = Device.all
   end
@@ -9,7 +10,8 @@ class ControlController < ApplicationController
   end
 
   def create_command
-    command = Command.create(device_id: params[:device_id], code: params[:code], action: params[:action_type], command: params[:command])
-    render json: { 'command': command }
+    cmd = Command.create(device_id: params[:device_id], code: params[:code], action: params[:action_type], command: params[:command])
+    mqtt_publish("lamp/#{cmd['code']}", cmd['command'])
+    render json: { 'command': cmd }
   end
 end
