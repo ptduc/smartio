@@ -212,6 +212,7 @@ code {
   font-size: 80%;
 }
 
+div#LoginForm{
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -223,8 +224,6 @@ code {
      -moz-box-sizing: border-box;
           box-sizing: content-box;
 }
-
-div#LoginForm{
  background-color: whitesmoke;
  background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 
