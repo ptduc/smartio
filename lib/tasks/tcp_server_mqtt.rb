@@ -170,10 +170,10 @@ class MQTT_Client
     device = db_insert_device code if device.nil?
   end
 
-  def action_3
+  def action_3 data
   end
 
-  def action_4
+  def action_4 data
   end
 
   # Bản tin định kỳ

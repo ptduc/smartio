@@ -33290,3 +33290,522 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 10.0.2.2 at 2018-10-25 14:21:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (68.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (70.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (67.8ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (1097.1ms)
+Started GET "/" for 10.0.2.2 at 2018-10-25 14:21:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (63.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (64.2ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (275.1ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 7579ms (Views: 7375.2ms | ActiveRecord: 191.3ms)
+
+
+Completed 200 OK in 10053ms (Views: 9419.4ms | ActiveRecord: 553.6ms)
+
+
+  [1m[35m (63.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7962566250648978465)[0m
+  ↳ bin/rails:9
+  [1m[35m (63.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddLevelToUser (20181025143749)
+  [1m[35m (78.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (71.9ms)[0m  [1m[35mALTER TABLE "users" ADD "level" integer DEFAULT 1[0m
+  ↳ db/migrate/20181025143749_add_level_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (62.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181025143749"]]
+  ↳ bin/rails:9
+  [1m[35m (63.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (63.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (78.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (62.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (62.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7962566250648978465)[0m
+  ↳ bin/rails:9
+  [1m[35m (66.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 10.0.2.2 at 2018-10-25 21:42:35 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (85.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (64.7ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (68.6ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (818.2ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 1473ms (Views: 918.0ms | ActiveRecord: 524.6ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:42:40 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (56.0ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 494ms (Views: 265.5ms | ActiveRecord: 166.8ms)
+
+
+Started POST "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:42:46 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hji1wXeUhAm1VfxTGD3NkdV9pMJJ6Ogb3JxJL+218jA62VckMWJ4964llVcmLT3BlPUGZOAJ7NQDa+C5jKYn0w==", "user"=>{"email"=>"ducpt1012@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (64.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ducpt1012@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 350ms (ActiveRecord: 64.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-10-25 21:42:47 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (63.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (63.5ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (138.0ms)
+  [1m[36mUser Load (64.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:25
+  Rendered layouts/_header.html.erb (68.6ms)
+Completed 200 OK in 426ms (Views: 224.0ms | ActiveRecord: 191.3ms)
+
+
+Started DELETE "/users/sign_out" for 10.0.2.2 at 2018-10-25 21:46:24 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"F52kpDR/xSYzMD2+X+nWnXtcEe/QIiOVPvbIqPKGgQKTg4wFD8Za0Gl79pYmQA7rdQivbj9RX1LZ31yhtLr+8A=="}
+  [1m[36mUser Load (63.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (68.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (61.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 262ms (ActiveRecord: 193.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-10-25 21:46:24 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (63.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (63.2ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (132.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 341ms (Views: 202.6ms | ActiveRecord: 126.3ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:46:27 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 172ms (Views: 171.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 10.0.2.2 at 2018-10-25 21:46:29 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (55.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 205ms (Views: 187.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 10.0.2.2 at 2018-10-25 21:46:52 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/passwords/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 180ms (Views: 146.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 10.0.2.2 at 2018-10-25 21:46:56 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pb5Kz+fpeCSthgXWEb3vsZPFEKHS/FYwgOj6fe+ZFtZroKHIcF2SJE8vFC2DwLJzf74nstoBKe3YwL8A2gmNtw==", "user"=>{"email"=>"ducpt1012@gmail.com"}}
+  [1m[36mUser Load (64.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ducpt1012@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (72.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["reset_password_token", "1cf7a0a8a92a8b36ff5503d0a832c8be5c538868e8c7f742e5661fc135045b4d"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (85.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (79.1ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "1cf7a0a8a92a8b36ff5503d0a832c8be5c538868e8c7f742e5661fc135045b4d"], ["reset_password_sent_at", "2018-10-25 14:46:57.090949"], ["updated_at", "2018-10-25 14:46:57.177906"], ["id", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (77.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/mailer/reset_password_instructions.html.erb
+  Rendered devise/mailer/reset_password_instructions.html.erb (0.6ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 837.7ms
+Sent mail to ducpt1012@gmail.com (109.0ms)
+Date: Thu, 25 Oct 2018 21:46:59 +0700
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ducpt1012@gmail.com
+Message-ID: <5bd1d7632d24e_11522abd3992c8387845b@server-pc.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello ducpt1012@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=oiHu6NJFWiSbzzaaf3-B">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2518ms (ActiveRecord: 378.0ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:46:59 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 181ms (Views: 178.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 10.0.2.2 at 2018-10-25 21:47:23 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pb5Kz+fpeCSthgXWEb3vsZPFEKHS/FYwgOj6fe+ZFtZroKHIcF2SJE8vFC2DwLJzf74nstoBKe3YwL8A2gmNtw==", "user"=>{"email"=>"ducpt1012@gmail.com"}}
+  [1m[36mUser Load (62.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ducpt1012@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (63.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["reset_password_token", "5f129b56f76749ad9001592d0e461b1c5b848be6ced29d9bf61c7dbec2bb8271"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (80.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (63.5ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "5f129b56f76749ad9001592d0e461b1c5b848be6ced29d9bf61c7dbec2bb8271"], ["reset_password_sent_at", "2018-10-25 14:47:24.058973"], ["updated_at", "2018-10-25 14:47:24.140898"], ["id", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (62.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/mailer/reset_password_instructions.html.erb
+  Rendered devise/mailer/reset_password_instructions.html.erb (0.5ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 199.2ms
+Sent mail to ducpt1012@gmail.com (9.2ms)
+Date: Thu, 25 Oct 2018 21:47:24 +0700
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ducpt1012@gmail.com
+Message-ID: <5bd1d77c73d7a_11522abd3992c680785d4@server-pc.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello ducpt1012@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=qGWpFxmCJuii6PL-ocKU">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 588ms (ActiveRecord: 332.9ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:47:24 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 168ms (Views: 166.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:48:36 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 222ms (Views: 218.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 10.0.2.2 at 2018-10-25 21:48:39 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 169ms (Views: 157.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 10.0.2.2 at 2018-10-25 21:48:56 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.7ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (16.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 197ms (Views: 167.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 10.0.2.2 at 2018-10-25 21:49:03 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/passwords/new.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 168ms (Views: 143.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 10.0.2.2 at 2018-10-25 21:49:07 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P2shJk/hqPR3WnPRDFgiHBVGMlkHF77DPcnhpo5R/Ixpdcoh2FVC9JXzYiqeJX/e+T0FSg/qwR5l4aTbu8Fn7Q==", "user"=>{"email"=>""}}
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/passwords/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 169ms (Views: 141.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 10.0.2.2 at 2018-10-25 21:49:10 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1LRrFbZ2WZ6Tn0mw7NSDfg9n9I9i9A+AZiRDdPvQsF+CqoASIcKznnE2WEt+qd684xzDnGoJcF0+DAYJzkArPg==", "user"=>{"email"=>"azdev1012@gmail.com"}}
+  [1m[36mUser Load (62.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "azdev1012@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/passwords/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 223ms (Views: 134.1ms | ActiveRecord: 62.6ms)
+
+
+Started POST "/users/password" for 10.0.2.2 at 2018-10-25 21:49:19 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/yI4po0h9pZ17Z3XvPCWa/m2JG5yk9bdiVv4kypnDi2pPNOhGpUclpdEjCwujcupFc0TfXpuqQDRc73uH/eVTA==", "user"=>{"email"=>"ducpt1012@gmail.com"}}
+  [1m[36mUser Load (63.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ducpt1012@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (62.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["reset_password_token", "bc5f89b70432d7a4efc7594ed659ca2fc5653aceca5d8371ecd38add01a82ac5"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (74.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (63.2ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "bc5f89b70432d7a4efc7594ed659ca2fc5653aceca5d8371ecd38add01a82ac5"], ["reset_password_sent_at", "2018-10-25 14:49:19.510268"], ["updated_at", "2018-10-25 14:49:19.586092"], ["id", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (62.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/mailer/reset_password_instructions.html.erb
+  Rendered devise/mailer/reset_password_instructions.html.erb (0.5ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 222.7ms
+Sent mail to ducpt1012@gmail.com (36.9ms)
+Date: Thu, 25 Oct 2018 21:49:19 +0700
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ducpt1012@gmail.com
+Message-ID: <5bd1d7efe5c88_11522abd3992c92878697@server-pc.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello ducpt1012@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=eRmt7Axy2eb1y9GRLycS">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 627ms (ActiveRecord: 326.2ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:49:20 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 144ms (Views: 143.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:54:24 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (68.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 908ms (Views: 650.2ms | ActiveRecord: 209.9ms)
+
+
+Started GET "/users/password/new" for 10.0.2.2 at 2018-10-25 21:54:29 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/passwords/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 168ms (Views: 157.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 10.0.2.2 at 2018-10-25 21:54:32 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J3iJ3sjIO5SgwhpWUZJq36i1MtN91KCVZvEV0EzWVR9xZmLZX3zRlEJrC63D7zcdRM4FwHUp30g+2VCteUbOfg==", "user"=>{"email"=>"ducpt1012@gmail.com"}}
+  [1m[36mUser Load (68.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ducpt1012@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (67.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["reset_password_token", "8e3c80f5f9cb6a1badc6fcbc5689fa9afce3e9da672b7290373ee7d1fb57e6a3"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (79.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (67.9ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "8e3c80f5f9cb6a1badc6fcbc5689fa9afce3e9da672b7290373ee7d1fb57e6a3"], ["reset_password_sent_at", "2018-10-25 14:54:32.405950"], ["updated_at", "2018-10-25 14:54:32.486599"], ["id", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (68.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/mailer/reset_password_instructions.html.erb
+  Rendered devise/mailer/reset_password_instructions.html.erb (1.4ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 219.1ms
+Sent mail to ducpt1012@gmail.com (3472.5ms)
+Date: Thu, 25 Oct 2018 21:54:33 +0700
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ducpt1012@gmail.com
+Message-ID: <5bd1d929347_11932ae5ba9ed78c7682e@server-pc.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello ducpt1012@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=GAVnA1hv8aATRuAJKDZB">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 4456ms (ActiveRecord: 351.8ms)
+
+
+Started GET "/users/sign_in" for 10.0.2.2 at 2018-10-25 21:54:36 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 151ms (Views: 149.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/edit?reset_password_token=[FILTERED]" for 10.0.2.2 at 2018-10-25 21:54:47 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#edit as HTML
+  Parameters: {"reset_password_token"=>"[FILTERED]"}
+  Rendering devise/passwords/edit.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/passwords/edit.html.erb within layouts/application (33.8ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 181ms (Views: 169.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/edit?reset_password_token=[FILTERED]" for 10.0.2.2 at 2018-10-25 21:58:28 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#edit as HTML
+  Parameters: {"reset_password_token"=>"[FILTERED]"}
+  Rendering devise/passwords/edit.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/passwords/edit.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 205ms (Views: 167.4ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/password" for 10.0.2.2 at 2018-10-25 21:58:42 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::PasswordsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FPAxpGb0+1p/7ntHedW3+74Nntu8E2vS5UamrsrSJgBC7tqj8UARWp1HarzrqOo5UnapyLTuFA+9buPT/0K9YQ==", "user"=>{"reset_password_token"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (68.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["reset_password_token", "8e3c80f5f9cb6a1badc6fcbc5689fa9afce3e9da672b7290373ee7d1fb57e6a3"], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (83.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (67.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_sent_at" = $1, "encrypted_password" = $2, "reset_password_token" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["reset_password_sent_at", nil], ["encrypted_password", "$2a$11$fe0bTXx2ofV.hbvqQdEYN.whRt5GuyzJld3koJ12MTp.IomCZw1YG"], ["reset_password_token", nil], ["updated_at", "2018-10-25 14:58:43.096103"], ["id", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (68.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 520ms (ActiveRecord: 287.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-10-25 21:58:43 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (69.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (69.3ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (720.4ms)
+  [1m[36mUser Load (69.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:25
+  Rendered layouts/_header.html.erb (71.6ms)
+Completed 200 OK in 985ms (Views: 394.0ms | ActiveRecord: 556.6ms)
+
+
+Started DELETE "/users/sign_out" for 10.0.2.2 at 2018-10-25 21:58:53 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vwV9cc/9mJdvdXo4tcz0Zw0e33/IVAGFOsZ5yxDTIBrpG5Z2WElyl43ca8Mnsaml4WXobMCpflhi7jy2JUO7ew=="}
+  [1m[36mUser Load (67.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (80.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (69.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 224ms (ActiveRecord: 217.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-10-25 21:58:53 +0700
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDevice Load (67.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" INNER JOIN "statuses" ON "statuses"."device_id" = "devices"."id" ORDER BY "devices"."id" ASC[0m
+  ↳ app/views/home/index.html.erb:31
+  [1m[36mStatus Load (69.3ms)[0m  [1m[34mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."device_id" = $1 LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:34
+  Rendered home/index.html.erb within layouts/application (141.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 321ms (Views: 175.4ms | ActiveRecord: 136.8ms)
+
+
