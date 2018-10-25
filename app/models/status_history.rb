@@ -1,4 +1,5 @@
 class StatusHistory < ApplicationRecord
+  paginates_per 10
   belongs_to :device
   # enum relay1_mode: { manual: 0, auto: 1 }
   # enum replay1_status: { off: 0, on: 1 }

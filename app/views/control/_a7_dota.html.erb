@@ -3,13 +3,13 @@
   <div class="row">
       <label class="col-sm-2 col-form-label text-right">IP Address</label>
       <div class="col-sm-3">
-        <input type="text" id="a7_ip_address" class="form-control form-control-sm element-search" >
+        <input type="text" id="a7_ip_address" v-model="device.ip_address" class="form-control form-control-sm element-search" >
       </div>
   </div>
   <div class="row">
       <label class="col-sm-2 col-form-label text-right">Port</label>
       <div class="col-sm-3">
-        <input type="text" id="a7_port" class="form-control form-control-sm element-search">
+        <input type="text" id="a7_port" v-model="device.port" class="form-control form-control-sm element-search">
       </div>
   </div>
 

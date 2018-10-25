@@ -20,7 +20,8 @@ class MQTT_Client
       @db_conn.close
       puts "MQTT_Client on stoping"
     rescue Exception => e
-      puts "MQTT_Client has Exception #{e.message}"
+      byebug
+      puts "MQTT_Client has Exception #{e}"
   end
 
   private
@@ -61,6 +62,8 @@ class MQTT_Client
             action_4 data
           when 5
             action_5 data
+          when 6
+            action_6 data
           else
           end
         end
@@ -106,9 +109,9 @@ class MQTT_Client
     @db_conn.exec("SELECT ID, CODE FROM DEVICES WHERE CODE LIKE '#{code}' ").first
   end
 
-  def db_update_device device
+  def db_update_device device_id, data
     db_init if @db_conn.nil?
-    @db_conn.exec_params("UPDATE DEVICES SET ADDRESS = $1, PORT = $2, FTIME = $3 WHERE ID = $4", [device['address'] , device['port'], device['ftime'], device['id'] ])
+    @db_conn.exec_params("UPDATE DEVICES SET IP_ADDRESS = $1, PORT = $2, FTIME = $3, PANEL = $4 WHERE ID = #{device_id}", [data['address'] , data['port'], data['ftime'], data['panel'] ])
   end
 
   def db_update_status_and_insert_status_logs(device_id = 1, data)
@@ -165,7 +168,6 @@ class MQTT_Client
     code = data['ID']
     device = db_get_device code
     device = db_insert_device code if device.nil?
-    db_update_device device
   end
 
   def action_3
@@ -176,10 +178,21 @@ class MQTT_Client
 
   # Bản tin định kỳ
   def action_5 data
-    code = data['ID']
-    device = db_get_device code
-    device = db_insert_device code if device.nil?
-    db_update_status_and_insert_status_logs(device["id"].to_i, data)
+    if data['Status'].nil?
+      code = data['ID']
+      device = db_get_device code
+      device = db_insert_device code if device.nil?
+      db_update_status_and_insert_status_logs(device["id"].to_i, data)
+    end
+  end
+
+  def action_6 data
+    if data['Status'].nil?
+      code = data['ID']
+      device = db_get_device code
+      device = db_insert_device code if device.nil?
+      db_update_device device["id"].to_i, data
+    end
   end
 
 end

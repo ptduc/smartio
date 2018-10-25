@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :fullname
 
-      t.integer :unit, foreign_key: true
+      t.references :unit, foreign_key: true
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

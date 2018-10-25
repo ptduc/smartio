@@ -4,6 +4,7 @@
   <div class="col-md-10 p-2 bg-white rounded shadow-sm">
     <div class="box-header with-border">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+      <%= hidden_field_tag :current_code, @current_code -%>
       <h5>Thông tin thiết bị</h5>
       <%= render 'device_info' %>
       <div class="config-device" v-if="!enable_set">

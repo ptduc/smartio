@@ -219,4 +219,51 @@
       <button class="btn btn-secondary" :disabled="enable_set" @click="post_command(1)">Set</button>
     </div>
   </div>
+
+  <hr>
+  <h5>Lịch sử dữ liệu</h5>
+  <div class="row p-1">
+    <div class="col-md-12 text-center">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped table-md">
+          <thead class="thead-light text-center">
+            <tr>
+              <th rowspan="2" class="text-center">Thời gian</th>
+              <th colspan="2" class="text-center">Relay 1</th>
+              <th colspan="2" class="text-center">Relay 2</th>
+              <th colspan="2" class="text-center">Relay 3</th>
+              <th colspan="2" class="text-center">Relay 4</th>
+            </tr>
+            <tr>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Mode</th>
+              <th class="text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @history_logs.each_with_index do |history_log, index| %>
+            <tr>
+              <td class="text-center"><%= history_log.created_at&.strftime('%Y/%m/%d %H:%M:%S') %></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(history_log.relay1_mode) %></span></td>
+              <td class="text-center"><span class="label <%= history_log.relay1_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay1_status == true ? 'ON' : 'OFF' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(history_log.relay2_mode) %></span></td>
+              <td class="text-center"><span class="label <%= history_log.relay2_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay2_status == true ? 'ON' : 'OFF' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= history_log.relay3_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label <%= history_log.relay3_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay3_status == true ? 'ON' : 'OFF' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= history_log.relay4_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label <%= history_log.relay4_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay4_status == true ? 'ON' : 'OFF' %></span></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @history_logs %>
+      </div>
+      <!-- /.table-responsive -->
+    </div>
+  </div>
 </div>

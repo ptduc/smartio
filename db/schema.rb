@@ -39,20 +39,6 @@ ActiveRecord::Schema.define(version: 2018_10_23_160006) do
     t.index ["unit_id"], name: "index_devices_on_unit_id"
   end
 
-  create_table "dota", force: :cascade do |t|
-    t.string "name_version"
-    t.integer "action", limit: 2
-    t.string "ip_address"
-    t.integer "port", limit: 2
-    t.string "user"
-    t.string "pass"
-    t.string "name"
-    t.string "path"
-    t.string "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "message_logs", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at"
@@ -205,7 +191,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_160006) do
     t.string "encrypted_password", default: "", null: false
     t.string "username"
     t.string "fullname"
-    t.integer "unit"
+    t.bigint "unit_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -213,10 +199,12 @@ ActiveRecord::Schema.define(version: 2018_10_23_160006) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unit_id"], name: "index_users_on_unit_id"
   end
 
   add_foreign_key "commands", "devices"
   add_foreign_key "devices", "units"
   add_foreign_key "status_histories", "devices"
   add_foreign_key "statuses", "devices"
+  add_foreign_key "users", "units"
 end

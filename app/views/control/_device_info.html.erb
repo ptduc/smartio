@@ -21,19 +21,19 @@
   </div>
   <div class="col-md-4">
     <p>
-      <label class="col-md-5">Panel: </label> {{device.panel}}
+      <label class="col-md-5">Panel: </label> {{device.panel == 1 ? "ON" : "OFF"}}
     </p>
   </div>
 </div>
 <div class="row">
   <div class="col-md-4">
     <p>
-      <label class="col-md-5">Ngày bắt đầu: </label><span v-if="device.created_at"> {{ moment.utc(device.created_at).format('DD/MM/YYYY h:mm:ss') }} </span>
+      <label class="col-md-5">Thời gian bắt đầu: </label><span v-if="device.created_at"> {{ moment.utc(device.created_at).format('DD/MM/YYYY HH:mm:ss') }} </span>
     </p>
   </div>
   <div class="col-md-4">
     <p>
-      <label class="col-md-5">Ngày cập nhật: </label><span v-if="device.created_at"> {{ moment.utc(status.updated_at).format('DD/MM/YYYY h:mm:ss') }} </span>
+      <label class="col-md-5">Lần cập nhật cuối: </label><span v-if="device.created_at"> {{ moment.utc(status.updated_at).format('DD/MM/YYYY HH:mm:ss') }} </span>
     </p>
   </div>
 </div>

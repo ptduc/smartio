@@ -212,7 +212,20 @@ code {
   font-size: 80%;
 }
 
-div#LoginForm{ background-color: whitesmoke;
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: content-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: content-box;
+}
+
+div#LoginForm{
+ background-color: whitesmoke;
  background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 
 .form-heading { color:#fff; font-size:23px;}
@@ -230,7 +243,7 @@ div#LoginForm{ background-color: whitesmoke;
   background: #ffffff none repeat scroll 0 0;
   border-radius: 2px;
   margin: 10px auto 30px;
-  max-width: 38%;
+  max-width: 32%;
   padding: 50px 70px 70px 71px;
 }
 
