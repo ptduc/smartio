@@ -93,8 +93,8 @@ new Vue({
         "ID": code,
         "Action": 2,
         "address": $('#a2_ip_address').val(),
-        "port": $('#a2_port').val(),
-        "ftime": $('#a2_ftime').val()
+        "port": parseInt($('#a2_port').val().trim()),
+        "ftime": parseInt($('#a2_ftime').val().trim())
       }
     },
     action_3: function(code) {
@@ -121,7 +121,7 @@ new Vue({
         "ID": code,
         "Action": 7,
         "address": $('#a7_ip_address').val(),
-        "port": $('#a7_port').val(),
+        "port": parseInt($('#a7_port').val().trim()),
         "user": $('#a7_user').val(),
         "pass": $('#a7_password').val(),
         "path": $('#a7_path').val()
@@ -129,16 +129,16 @@ new Vue({
     },
     mode_setting: function(number) {
       var command = {};
-      mode = $('#a1_relay' + number + '_mode').val();
+      mode = parseInt($('#a1_relay' + number + '_mode').val().trim());
       switch (mode) {
-        case "2":
+        case 2:
           command = {
             "mode": mode,
-            "time_on": $('#a1_time' + number + '_on').val(),
-            "time_off": $('#a1_time' + number + '_off').val()
+            "time_on": parseInt($('#a1_time' + number + '_on').val().trim()),
+            "time_off": parseInt($('#a1_time' + number + '_off').val().trim())
           };
           break;
-        case "3":
+        case 3:
           command = {
             "mode": mode,
             "times": $('#a1_times' + number).val()
@@ -147,7 +147,7 @@ new Vue({
           var time_on = {}
           for (var i = 0; i < times; i++) {
             command['times_' + i] = $('#a1_times' + number + '_' + i).val();
-            command['on_' + i] = $('#a1_on' + number + '_' + i).val();
+            command['on_' + i] = parseInt($('#a1_on' + number + '_' + i).val().trim());
           }
           break;
         default:
