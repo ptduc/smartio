@@ -3,9 +3,11 @@ new Vue({
   data: {
     device: {},
     status: {},
+    db_status: {},
     devices: [],
     current_code: 1,
-    enable_set: true
+    enable_set: true,
+    permit_send_command_to_device: true
   },
   created: function() {
     this.current_code = $('#current_code').val();
@@ -21,14 +23,14 @@ new Vue({
         .then(function(response) {
           _this.device = response.data["device"];
           _this.status = response.data["status"];
-          _this.enable_set = false
+          _this.db_status = Object.assign({}, response.data["status"]);
+          _this.enable_set = false;
         }).catch(function(error) {
           console.log('Error load  api' + url);
           _this.enable_set = true
         });
     },
     post_command: function(action) {
-      var _this = this;
       var code = $('#device_code').val();
       var command = "";
       switch (action) {
@@ -50,7 +52,7 @@ new Vue({
         case 6:
           command = this.action_6(code);
           setInterval(function() {
-            alert("Hello");
+            location.reload();
           }, 3000);
           break;
         case 7:
@@ -60,33 +62,46 @@ new Vue({
           command = this.action_0(code);
           break;
       }
-      var objCommand = {
-        device_id: $('#device_id').val(),
-        code: code,
-        action_type: action,
-        command: JSON.stringify(command),
-        authenticity_token: $('#authenticity_token').val()
+      if(this.permit_send_command_to_device){
+        var objCommand = {
+          device_id: $('#device_id').val(),
+          code: code,
+          action_type: action,
+          command: JSON.stringify(command),
+          authenticity_token: $('#authenticity_token').val()
+        }
+        var url = '/control/create_command/';
+        axios.post(url, objCommand)
+          .then(function(response) {
+            toastr.success("Cấu hình thành công!");
+          }).catch(function(error) {
+            console.log('Error load  api' + url);
+          });
       }
-      var url = '/control/create_command/';
-      axios.post(url, objCommand)
-        .then(function(response) {
-          toastr.success("Cấu hình thành công!");
-        }).catch(function(error) {
-          console.log('Error load  api' + url);
-        });
-    },
-    action_0: function(code) {
-      return $('#a0_command').val();
     },
     action_1: function(code) {
-      return {
+      this.permit_send_command_to_device = false;
+      command =  {
         "ID": code,
-        "Action": 1,
-        "Relay_1": this.mode_setting(1),
-        "Relay_2": this.mode_setting(2),
-        "Relay_3": this.mode_setting(3),
-        "Relay_4": this.mode_setting(4)
+        "Action": 1
       }
+      if(this.db_status.relay1_mode != this.status.relay1_mode){
+        command["Relay_0"] = this.mode_setting(1);
+        this.permit_send_command_to_device = true;
+      }
+      if(this.db_status.relay2_mode != this.status.relay2_mode){
+        command["Relay_1"] = this.mode_setting(2);
+        this.permit_send_command_to_device = true;
+      }
+      if(this.db_status.relay3_mode != this.status.relay3_mode){
+        command["Relay_2"] = this.mode_setting(3);
+        this.permit_send_command_to_device = true;
+      }
+      if(this.db_status.relay4_mode != this.status.relay4_mode){
+        command["Relay_3"] = this.mode_setting(4);
+        this.permit_send_command_to_device = true;
+      }
+      return command;
     },
     action_2: function(code) {
       return {

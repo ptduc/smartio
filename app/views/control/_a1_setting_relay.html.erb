@@ -1,6 +1,7 @@
 <div role="tabpanel" class="tab-pane active pb-2 pt-1 pl-3 pr-3" id="setting_relay">
   <div class="row">
     <div class="col-md-12 text-right">
+      <button class="btn btn-sm btn-info" :disabled="enable_set" @click="location.reload();">Refresh</button>
       <button class="btn btn-sm btn-info" :disabled="enable_set" @click="post_command(4)">Request</button>
     </div>
   </div>
@@ -253,9 +254,9 @@
               <td class="text-center"><span class="label <%= history_log.relay1_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay1_status == true ? 'ON' : 'OFF' %></span></td>
               <td class="text-center"><span class="label label-manual"><%= get_mode(history_log.relay2_mode) %></span></td>
               <td class="text-center"><span class="label <%= history_log.relay2_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay2_status == true ? 'ON' : 'OFF' %></span></td>
-              <td class="text-center"><span class="label label-manual"><%= history_log.relay3_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(history_log.relay3_mode) %></span></td>
               <td class="text-center"><span class="label <%= history_log.relay3_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay3_status == true ? 'ON' : 'OFF' %></span></td>
-              <td class="text-center"><span class="label label-manual"><%= history_log.relay4_mode == true ? 'AUTO' : 'MANUAL' %></span></td>
+              <td class="text-center"><span class="label label-manual"><%= get_mode(history_log.relay4_mode) %></span></td>
               <td class="text-center"><span class="label <%= history_log.relay4_status == true ? 'label-on' : 'label-off' %>"><%= history_log.relay4_status == true ? 'ON' : 'OFF' %></span></td>
             </tr>
             <% end %>
