@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_071736) do
+ActiveRecord::Schema.define(version: 2018_10_25_143749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,20 +37,6 @@ ActiveRecord::Schema.define(version: 2018_10_09_071736) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["unit_id"], name: "index_devices_on_unit_id"
-  end
-
-  create_table "dota", force: :cascade do |t|
-    t.string "name_version"
-    t.integer "action", limit: 2
-    t.string "ip_address"
-    t.integer "port", limit: 2
-    t.string "user"
-    t.string "pass"
-    t.string "name"
-    t.string "path"
-    t.string "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "message_logs", force: :cascade do |t|
@@ -200,8 +186,26 @@ ActiveRecord::Schema.define(version: 2018_10_09_071736) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "username"
+    t.string "fullname"
+    t.bigint "unit_id"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "level", default: 1
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unit_id"], name: "index_users_on_unit_id"
+  end
+
   add_foreign_key "commands", "devices"
   add_foreign_key "devices", "units"
   add_foreign_key "status_histories", "devices"
   add_foreign_key "statuses", "devices"
+  add_foreign_key "users", "units"
 end
